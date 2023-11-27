@@ -8,7 +8,6 @@ body{
     background: rgb(0,0,0);
     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(223,213,177,1) 25%, rgba(240,203,76,1) 50%, rgba(223,213,177,1) 75%, rgba(0,0,0,1) 100%);
     display: flex;
-    align-items: center;
     justify-content: center;    
     }
 
