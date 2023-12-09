@@ -1,4 +1,12 @@
-// console.log(rowTable);
+let tr1 = document.getElementById("tr1")
+let tr2 = document.getElementById("tr2")
+let tr3 = document.getElementById("tr3")
+let tr4 = document.getElementById("tr4")
+let tr5 = document.getElementById("tr5")
+let tr6 = document.getElementById("tr6")
+let tr7 = document.getElementById("tr7")
+let tr8 = document.getElementById("tr8")
+let tr9 = document.getElementById("tr9")
 
 let num = [
   (row1 = ["2", "3", ".", "9", "4", ".", "6", "7", "."]),
@@ -13,29 +21,29 @@ let num = [
 ];
 
 for (i = 0; i < row1.length; i++) {
-  `${(document.getElementById("tr1").innerHTML += `<th>   ${row1[i]}</th>`)}`;
+  `${(tr1.innerHTML += `<th>   ${row1[i]}</th>`)}`;
 }
 for (i = 0; i < row2.length; i++) {
-  `${(document.getElementById("tr2").innerHTML += `<th>   ${row2[i]}</th>`)}`;
+  `${(tr2.innerHTML += `<th>   ${row2[i]}</th>`)}`;
 }
 for (i = 0; i < row3.length; i++) {
-  `${(document.getElementById("tr3").innerHTML += `<th>   ${row3[i]}</th>`)}`;
+  `${(tr3.innerHTML += `<th>   ${row3[i]}</th>`)}`;
 }
 for (i = 0; i < row4.length; i++) {
-  `${(document.getElementById("tr4").innerHTML += `<th>   ${row4[i]}</th>`)}`;
+  `${(tr4.innerHTML += `<th>   ${row4[i]}</th>`)}`;
 }
 for (i = 0; i < row5.length; i++) {
-  `${(document.getElementById("tr5").innerHTML += `<th>   ${row5[i]}</th>`)}`;
+  `${(tr5.innerHTML += `<th>   ${row5[i]}</th>`)}`;
 }
 for (i = 0; i < row6.length; i++) {
-  `${(document.getElementById("tr6").innerHTML += `<th>   ${row6[i]}</th>`)}`;
+  `${(tr6.innerHTML += `<th>   ${row6[i]}</th>`)}`;
 }
 for (i = 0; i < row7.length; i++) {
-  `${(document.getElementById("tr7").innerHTML += `<th>   ${row7[i]}</th>`)}`;
+  `${(tr7.innerHTML += `<th>   ${row7[i]}</th>`)}`;
 }
 for (i = 0; i < row8.length; i++) {
-  `${(document.getElementById("tr8").innerHTML += `<th>   ${row8[i]}</th>`)}`;
+  `${(tr8.innerHTML += `<th>   ${row8[i]}</th>`)}`;
 }
 for (i = 0; i < row9.length; i++) {
-  `${(document.getElementById("tr9").innerHTML += `<th>   ${row9[i]}</th>`)}`;
+  `${(tr9.innerHTML += `<th>   ${row9[i]}</th>`)}`;
 }
