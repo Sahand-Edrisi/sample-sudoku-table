@@ -1,56 +1,73 @@
-function numbers(easy, medium, hard, veryHard, insane, inhuman) {
-  this.num = sudoku.board_string_to_grid(sudoku.generate(easy));
-  this.num = sudoku.board_string_to_grid(sudoku.generate(medium));
-  this.num = sudoku.board_string_to_grid(sudoku.generate(hard));
-  this.num = sudoku.board_string_to_grid(sudoku.generate(veryHard));
-  this.num = sudoku.board_string_to_grid(sudoku.generate(insane));
-  this.num = sudoku.board_string_to_grid(sudoku.generate(inhuman));
+function easy() {
+  num = sudoku.board_string_to_grid(sudoku.generate("easy"));
+}
+function medium() {
+  num = sudoku.board_string_to_grid(sudoku.generate("medium"));
+}
+function hard() {
+  num = sudoku.board_string_to_grid(sudoku.generate("hard"));
+}
+function veryHard() {
+  num = sudoku.board_string_to_grid(sudoku.generate("very-hard"));
+}
+function insane() {
+  num = sudoku.board_string_to_grid(sudoku.generate("insane"));
+}
+function inhuman() {
+  num = sudoku.board_string_to_grid(sudoku.generate("inhuman"));
 }
 
+let num = sudoku.board_string_to_grid(sudoku.generate("easy"));
 function createTable() {
-  let num = sudoku.board_string_to_grid(sudoku.generate("easy"));
   for (i = 0; i < num.length; i++) {
     let table = document.getElementById("table");
     let tr = document.createElement("tr");
     let row = table.appendChild(tr);
     let numindex = num[i];
     for (let j = 0; j < numindex.length; j++) {
-      row.innerHTML += `<th>${numindex[j]}</th>`;
+      if (numindex[j] == ".") {
+        row.innerHTML += `<th><input type="text" maxlength="1">${(numindex[
+          j
+        ] = " ")}</input></th>`;
+      } else {
+        row.innerHTML += `<th><span>${numindex[j]}</span></th>`;
+      }
     }
   }
 }
 createTable();
-
 function clearTable() {
   document.getElementById("table").innerHTML = "";
 }
 easyButton.addEventListener("click", () => {
   clearTable();
-  new numbers("easy");
+  easy();
   createTable();
 });
 mediumButton.addEventListener("click", () => {
   clearTable();
-  new numbers("medium");
+  medium();
   createTable();
 });
 hardButton.addEventListener("click", () => {
   clearTable();
-  new numbers("hard");
+  hard();
   createTable();
 });
 veryHardButton.addEventListener("click", () => {
-  new clearTable();
-  numbers("very-hard");
+  clearTable();
+  veryHard();
   createTable();
 });
 insaneButton.addEventListener("click", () => {
   clearTable();
-  new numbers("insane");
+  insane();
   createTable();
 });
 inhumanButton.addEventListener("click", () => {
   clearTable();
-  new numbers("inhuman");
+  inhuman(inhuman);
   createTable();
 });
+
+
