@@ -1,21 +1,56 @@
-let num = [
-  ["2", "3", ".", "9", "4", ".", "6", "7", "."],
-  ["8", ".", ".", "3", "2", "5", "9", "1", "4"],
-  ["9", ".", ".", "7", "6", ".", "3", "2", "."],
-  ["1", ".", ".", ".", ".", ".", "7", "9", "2"],
-  ["5", ".", "3", "2", "1", ".", "4", "8", "6"],
-  ["4", ".", ".", "6", "8", ".", "5", "3", "1"],
-  ["7", ".", ".", "1", ".", ".", ".", ".", "9"],
-  ["6", "5", "9", "8", "7", "2", "1", "4", "3"],
-  ["3", ".", ".", ".", "9", ".", ".", ".", "7"],
-];
+function numbers(easy, medium, hard, veryHard, insane, inhuman) {
+  this.num = sudoku.board_string_to_grid(sudoku.generate(easy));
+  this.num = sudoku.board_string_to_grid(sudoku.generate(medium));
+  this.num = sudoku.board_string_to_grid(sudoku.generate(hard));
+  this.num = sudoku.board_string_to_grid(sudoku.generate(veryHard));
+  this.num = sudoku.board_string_to_grid(sudoku.generate(insane));
+  this.num = sudoku.board_string_to_grid(sudoku.generate(inhuman));
+}
 
-for (i = 0; i < num.length; i++) {
-  let table = document.getElementById("table");
-  let tr = document.createElement("tr");
-  let row = table.appendChild(tr);
-  let numindex = num[i];
-  for (let j = 0; j < numindex.length; j++) {
-    row.innerHTML += `<th>${numindex[j]}</th>`;
+function createTable() {
+  let num = sudoku.board_string_to_grid(sudoku.generate("easy"));
+  for (i = 0; i < num.length; i++) {
+    let table = document.getElementById("table");
+    let tr = document.createElement("tr");
+    let row = table.appendChild(tr);
+    let numindex = num[i];
+    for (let j = 0; j < numindex.length; j++) {
+      row.innerHTML += `<th>${numindex[j]}</th>`;
+    }
   }
 }
+createTable();
+
+function clearTable() {
+  document.getElementById("table").innerHTML = "";
+}
+easyButton.addEventListener("click", () => {
+  clearTable();
+  new numbers("easy");
+  createTable();
+});
+mediumButton.addEventListener("click", () => {
+  clearTable();
+  new numbers("medium");
+  createTable();
+});
+hardButton.addEventListener("click", () => {
+  clearTable();
+  new numbers("hard");
+  createTable();
+});
+veryHardButton.addEventListener("click", () => {
+  new clearTable();
+  numbers("very-hard");
+  createTable();
+});
+insaneButton.addEventListener("click", () => {
+  clearTable();
+  new numbers("insane");
+  createTable();
+});
+inhumanButton.addEventListener("click", () => {
+  clearTable();
+  new numbers("inhuman");
+  createTable();
+});

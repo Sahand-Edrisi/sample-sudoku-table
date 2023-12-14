@@ -28,3 +28,19 @@ th {
 #sudoko {
   padding: 150px 0;
 }
+.buttons{
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+button{
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 1px 5px;
+  background-color: inherit;
+  color: #18010c;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+
+}
