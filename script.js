@@ -1,5 +1,6 @@
 
 let num = sudoku.board_string_to_grid(sudoku.generate("easy"));
+
 function createTable() {
   for (i = 0; i < num.length; i++) {
     let table = document.getElementById("table");
@@ -16,16 +17,15 @@ function createTable() {
     }
   }
 }
-createTable();
-function clearTable() {
+function clearTable(){
   document.getElementById("table").innerHTML = "";
 }
-
 function sudokuGenerate(difficulty){
   clearTable();
   num = sudoku.board_string_to_grid(sudoku.generate(difficulty))
   createTable();
 }
 
+createTable()
 
 

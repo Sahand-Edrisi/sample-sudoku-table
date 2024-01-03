@@ -1,0 +1,86 @@
+
+@media screen and (max-width: 1000px) {
+  th {
+    border: 2px solid;
+    width: 50px;
+    height: 50px;
+  }
+  input {
+    width: 50px;
+    height: 50px;
+  }
+  body {
+    height: 550px;
+  }
+  button {
+    font-size: 10px !important;
+  }
+}
+@media screen and (max-width: 550px) {
+  th {
+    border: 2px solid;
+    width: 35px;
+    height: 35px;
+  }
+  input {
+    width: 35px;
+    height: 35px;
+  }
+  body {
+    height: 520px;
+  }
+  button {
+    font-size: 10px !important;
+  }
+  input {
+    font-size: 25px !important;
+  }
+  span {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 450px) {
+  th {
+    width: 35px;
+    height: 35px;
+  }
+  input {
+    width: 35px;
+    height: 35px;
+  }
+  body {
+    height: 500px;
+  }
+  button {
+    font-size: 5px !important;
+  }
+  input {
+    font-size: 20px !important;
+  }
+  span {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 300px) {
+  th {
+    width: 25px;
+    height: 25px;
+  }
+  input {
+    width: 25px;
+    height: 25px;
+  }
+  body {
+    height: 480px;
+  }
+  button {
+    font-size: 5px !important;
+  }
+  input {
+    font-size: 15px !important;
+  }
+  span {
+    font-size: 15px;
+  }
+}
+

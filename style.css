@@ -15,20 +15,18 @@ body {
   );
   display: flex;
   justify-content: center;
+  height: 580px;
+  align-items: center;
 }
 tr {
   background-color: aliceblue;
 }
 th {
   border: 2px solid;
-  /* padding: 10px 15px; */
-  width: 80px;
-  height: 80px;
+  width: 55px;
+  height: 55px;
 }
 
-#sudoko {
-  padding: 150px 0;
-}
 .buttons{
   display: flex;
   justify-content: space-between;
@@ -45,8 +43,8 @@ button{
   cursor: pointer;
 }
 input{
-  width: 80px;
-  height: 80px;
+  width: 55px;
+  height: 55px;
   border: 0;
   background-color: aliceblue;
   text-align: center;
