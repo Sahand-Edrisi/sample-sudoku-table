@@ -13,23 +13,20 @@
     />
   </head>
   <body>
-    
-
-    <div id="sudoko" class="d-flex flex-column ">
-      <div class="buttons" id="buttons">
-        <button id="easyButton" onclick="easy()">easy</button>
-        <button id="mediumButton" onclick="medium()">medium</button>
-        <button id="hardButton" onclick="hard()">hard</button>
-        <button id="veryHardButton" onclick="VeryHard()">Very-hard</button>
-        <button id="insaneButton" onclick="insane()">insane</button>
-        <button id="inhumanButton" onclick="inhuman()">inhuman</button>
+    <div id="sudoko" class="d-flex flex-column">
+      <div class="buttons">
+        <button onclick="sudokuGenerate('easy')">easy</button>
+        <button onclick="sudokuGenerate('medium')">medium</button>
+        <button onclick="sudokuGenerate('hard')">hard</button>
+        <button onclick="sudokuGenerate('very-hard')">Very-hard</button>
+        <button onclick="sudokuGenerate('insane')">insane</button>
+        <button onclick="sudokuGenerate('inhuman')">inhuman</button>
       </div>
-      <table id="table" ></table>
+      <table id="table"></table>
     </div>
 
-
-    <script  src="./sudoku.js" ></script>
-    <script  src="./script.js" ></script>
+    <script src="./sudoku.js"></script>
+    <script src="./script.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

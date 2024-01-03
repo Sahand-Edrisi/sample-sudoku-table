@@ -1,5 +1,4 @@
 
-
 let num = sudoku.board_string_to_grid(sudoku.generate("easy"));
 function createTable() {
   for (i = 0; i < num.length; i++) {
@@ -22,35 +21,11 @@ function clearTable() {
   document.getElementById("table").innerHTML = "";
 }
 
-function easy(){
+function sudokuGenerate(difficulty){
   clearTable();
-    num = sudoku.board_string_to_grid(sudoku.generate("easy"));
+  num = sudoku.board_string_to_grid(sudoku.generate(difficulty))
   createTable();
- }
-  function medium(){
-    clearTable();
-    num = sudoku.board_string_to_grid(sudoku.generate("medium"));
-    createTable();
-  }
-  function hard(){
-    clearTable();
-    num = sudoku.board_string_to_grid(sudoku.generate("hard"));
-    createTable();
-  }
-  function VeryHard(){
-    clearTable();
-    num = sudoku.board_string_to_grid(sudoku.generate("very-hard"));
-    createTable();
-  }
-  function insane(){
-    clearTable();
-    num = sudoku.board_string_to_grid(sudoku.generate("insane"));
-    createTable();
-  }
-  function inhuman(){
-    clearTable();
-    num = sudoku.board_string_to_grid(sudoku.generate("inhuman"));
-    createTable();
-  }
+}
+
 
 
