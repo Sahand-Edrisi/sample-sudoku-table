@@ -18,16 +18,18 @@ body {
   height: 580px;
   align-items: center;
 }
-tr {
-  background-color: aliceblue;
+tr{
+  background-color: rgb(255, 255, 255);  
+  opacity: .8;
 }
 th {
   border: 2px solid;
   width: 55px;
   height: 55px;
+  font-size: 30px;
+  text-align: center !important;
 }
-
-.buttons{
+.buttons {
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
@@ -42,30 +44,35 @@ button{
   font-weight: 900;
   cursor: pointer;
 }
-input{
+input {
   width: 55px;
   height: 55px;
   border: 0;
-  background-color: aliceblue;
   text-align: center;
   font-weight: 800;
-}
-input[type="text"] {  
-  color: rgb(6, 86, 235);
-  font-size: 30px;
-
-}
-input::-webkit-inner-spin-button{
-  -webkit-appearance: none;
-}
-input:focus{
- background-color: rgb(223, 219, 13);
-}
-span{
-  display: flex;
-  justify-content: center;
   font-size: 30px;
 }
-.hovertr:hover{
+#hoverTh0,
+#hoverTh1,
+#hoverTh2,
+#hoverTh3,
+#hoverTh4,
+#hoverTh5,
+#hoverTh6,
+#hoverTh7,
+#hoverTh8{
   background-color: rgb(238, 223, 8);
 }
+.hoverTr0,
+.hoverTr1,
+.hoverTr2,
+.hoverTr3,
+.hoverTr4,
+.hoverTr5,
+.hoverTr6,
+.hoverTr7,
+.hoverTr8{
+  background-color: rgb(238, 223, 8);
+}
+
+
