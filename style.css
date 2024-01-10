@@ -15,7 +15,7 @@ body {
   );
   display: flex;
   justify-content: center;
-  height: 800px;
+  height: 600px;
   align-items: center;
 }
 tr{

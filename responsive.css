@@ -1,7 +1,6 @@
 
 @media screen and (max-width: 1000px) {
   th {
-    border: 2px solid;
     width: 50px !important;
     height: 50px !important;
   }
@@ -18,7 +17,6 @@
 }
 @media screen and (max-width: 550px) {
   th {
-    border: 2px solid;
     width: 40px !important;
     height: 40px !important;
     font-size: 20px !important;
@@ -29,7 +27,7 @@
     font-size: 20px !important;
   }
   body {
-    height: 520px;
+    height: 500px;
   }
   button {
     font-size: 12px !important ;
@@ -46,7 +44,7 @@
     height: 35px !important;
   }
   body {
-    height: 500px;
+    height: 450px;
   }
 }
 @media screen and (max-width: 360px) {
@@ -59,7 +57,7 @@
     height: 30px !important;
   }
   body {
-    height: 480px;
+    height: 400px;
   }
   button {
     font-size: 8px !important ;
@@ -72,11 +70,91 @@
   input {
     width: 25px !important;
   }
-  body {
-    height: 480px;
-  }
   button {
     font-size: 8px !important ;
+  }
+}
+
+/* height */
+@media screen and (max-height: 600px) {
+  th {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  input {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  body {
+    height: 550px;
+  }
+  button {
+    font-size: 15px !important;
+  }
+}
+@media screen and (max-height: 550px) {
+  th {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 20px !important;
+  }
+  input {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 20px !important;
+  }
+  body {
+    height: 450px !important;
+  }
+  button {
+    font-size: 12px !important ;
+  }
+}
+@media screen and (max-height: 470px) {
+  th {
+    width: 35px !important;
+    height: 35px !important;
+  }
+  input {
+    width: 35px !important;
+    height: 35px !important;
+  }
+  body {
+    height: 400px !important;
+  }
+}
+@media screen and (max-height: 420px) {
+  th {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  input {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  body {
+    height: 350px !important;
+  }
+  button {
+    font-size: 10px !important ;
+  }
+}
+@media screen and (max-height: 370px) {
+
+  body {
+    height: 350px;
+  }
+  button {
+    font-size: 10px !important ;
+  }
+}
+@media screen and (max-height: 350px) {
+
+  body {
+    height: 325px !important;
+  }
+  button {
+    font-size: 10px !important ;
   }
 }
 
