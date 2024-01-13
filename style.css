@@ -4,39 +4,31 @@
   box-sizing: border-box;
 }
 body {
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(223, 213, 177, 1) 25%,
-    rgba(240, 203, 76, 1) 50%,
-    rgba(223, 213, 177, 1) 75%,
-    rgba(0, 0, 0, 1) 100%
-  );
   display: flex;
   justify-content: center;
   height: 600px;
   align-items: center;
 }
-tr{
-  background-color: rgb(255, 255, 255);  
-  opacity: .8;
+
+tr {
+  opacity: 0.8;
 }
 th {
-  border: 2px solid;
+  border: 1px solid black;
   width: 55px;
   height: 55px;
   font-size: 30px;
   text-align: center !important;
   font-weight: 1000;
+  background-color: #ebe7e7;
 }
 .buttons {
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
 }
-button{
-  border: 1px solid;
+button {
+  border: 1px solid black;
   border-radius: 5px;
   padding: 1px 5px;
   background-color: inherit;
@@ -52,6 +44,8 @@ input {
   text-align: center;
   font-weight: 1000;
   font-size: 30px;
+  background-color: #ebe7e7;
+
 }
 #hoverTh0,
 #hoverTh1,
@@ -61,8 +55,9 @@ input {
 #hoverTh5,
 #hoverTh6,
 #hoverTh7,
-#hoverTh8{
-  background-color: rgb(238, 223, 8);
+#hoverTh8 {
+  background-color: rgb(0, 169, 255, 0.3);
+  opacity: 0.5;
 }
 .hoverTr0,
 .hoverTr1,
@@ -72,8 +67,23 @@ input {
 .hoverTr5,
 .hoverTr6,
 .hoverTr7,
-.hoverTr8{
-  background-color: rgb(238, 223, 8);
+.hoverTr8 {
+  background-color: rgba(0, 169, 255, 0.3);
+  opacity: 0.5;
 }
 
-
+/* background Table */
+#bacGrTab {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.5;
+  width: 506px;
+  height: 508px;
+}
+#bacGrTabBor {
+  width: 18.7px;
+  height: 18.8px;
+  border: 1px solid #6e7c8c;
+}
