@@ -1,5 +1,4 @@
 let num = sudoku.board_string_to_grid(sudoku.generate("easy"));
-let bacGrTab = document.getElementById("bacGrTab");
 
 function createTable() {
   for (i = 0; i < num.length; i++) {
@@ -12,7 +11,7 @@ function createTable() {
     let numIndex = num[i];
     for (let j = 0; j < numIndex.length; j++) {
       if (numIndex[j] == ".") {
-        row.innerHTML += `<th onclick="ColumnHoverActive(event)"  onmouseout="ColumnHoverDeactivate(event)" id="colTh${j}"><input class="rowTr${i}" id="colTh${j}"  onkeydown="chColor(event)"  type="text" maxlength="1" oninput="this.value = this.value.replace(/[^1-9]/g,'')" > ${(numIndex[
+        row.innerHTML += `<th onclick="ColumnHoverActive(event)"  onmouseout="ColumnHoverDeactivate(event)" id="colTh${j}"><input class="rowTr${i}" id="colTh${j}"    type="text" maxlength="1" oninput="this.value = this.value.replace(/[^1-9]/g,'')" > ${(numIndex[
           j
         ] = " ")}
         </input>
@@ -24,10 +23,6 @@ function createTable() {
     }
   }
 }
-//bacGrTab
-for (let i = 0; i < 729; i++) {
-  bacGrTab.innerHTML += `<dive id="bacGrTabBor"></dive>`;
-}
 
 function clearTable() {
   document.getElementById("table").innerHTML = "";
@@ -37,10 +32,7 @@ function sudokuGenerate(difficulty) {
   num = sudoku.board_string_to_grid(sudoku.generate(difficulty));
   createTable();
 }
-// function chColor(event) {
-//   let input = event.currentTarget;
-//   input.style.backgroundColor = "rgb(219, 142, 17)";
-// }
+
 
 // Row Table Hover Active And Deactivate
 
@@ -94,6 +86,7 @@ function RowHoverActive(event) {
     }
   }
 }
+
 function RowHoverDeactivate(event) {
   let tr = event.currentTarget;
   let hoverTr0 = document.querySelectorAll(".hoverTr0");

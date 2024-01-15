@@ -13,14 +13,6 @@
   button {
     font-size: 15px !important;
   }
-  #bacGrTab {
-    width: 461px;
-    height: 461px;
-  }
-  #bacGrTabBor {
-    width: 16px;
-    height: 16px;
-  }
 }
 
 @media screen and (max-width: 950px) {
@@ -40,14 +32,6 @@
   button {
     font-size: 12px !important ;
   }
-  #bacGrTab {
-    width: 372px;
-    height: 372px;
-  }
-  #bacGrTabBor {
-    width: 13.3px;
-    height: 13.3px;
-  }
 }
 @media screen and (max-width: 850px) {
   th {
@@ -61,15 +45,8 @@
   body {
     height: 450px;
   }
-  #bacGrTab {
-    width: 327px;
-    height: 327px;
-  }
-  #bacGrTabBor {
-    width: 11.6px;
-    height: 1.6px;
-  }
 }
+
 @media screen and (max-width: 450px) {
   th {
     width: 30px !important;
@@ -85,23 +62,18 @@
   button {
     font-size: 8px !important ;
   }
-  #bacGrTab {
-    width: 282px;
-    height: 282px;
-  }
-  #bacGrTabBor {
-    width: 10px;
-    height: 10px;
-  }
 }
 @media screen and (max-width: 400px) {
   th {
-    width: 25px !important;
-    height: 25px !important;
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 15px !important;
+
   }
   input {
-    width: 25px !important;
-    height: 25px !important;
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 15px !important;
   }
   body {
     height: 350px;
@@ -109,26 +81,17 @@
   button {
     font-size: 6px !important ;
   }
-  #bacGrTab {
-    width: 238px;
-    height: 258px;
-  }
-  #bacGrTabBor {
-    width: 8.7px;
-    height: 9.5px;
-  }
 }
-
 
 /* height */
 @media screen and (max-height: 600px) {
   th {
-    width: 35px !important;
-    height: 35px !important;
+    width: 40px !important;
+    height: 40px !important;
   }
   input {
-    width: 35px !important;
-    height: 35px !important;
+    width: 40px !important;
+    height: 40px !important;
   }
   body {
     height: 450px;
@@ -136,15 +99,8 @@
   button {
     font-size: 12px !important;
   }
-  #bacGrTab {
-    width: 327px;
-    height: 327px;
-  }
-  #bacGrTabBor {
-    width: 11.6px;
-    height: 11.6px;
-  }
 }
+
 @media screen and (max-height: 550px) {
   th {
     width: 30px !important;
@@ -162,72 +118,33 @@
   button {
     font-size: 10px !important ;
   }
-  #bacGrTab {
-    width: 283px;
-    height: 287px;
-  }
-  #bacGrTabBor {
-    width: 10px;
-    height: 10px;
-  }
 }
 @media screen and (max-height: 470px) {
-  th {
-    width: 25px !important;
-    height: 25px !important;
-    font-size: 18px !important;
-  }
-  input {
-    width: 25px !important;
-    height: 25px !important;
-  }
+  
   body {
     height: 400px !important;
   }
   button {
-    font-size: 6px !important ;
+    font-size: 8px !important ;
   }
-  #bacGrTab {
-    width: 238px;
-    height: 258px;
-  }
-  #bacGrTabBor {
-    width: 8.7px;
-    height: 9.5px;
-  }
-
 }
+
 @media screen and (max-height: 420px) {
-  th {
-    width: 20px !important;
-    height: 20px !important;
-    font-size: 15px !important;
-  }
-  input {
-    width: 20px !important;
-    height: 20px !important;
-  }
+
   body {
     height: 350px !important;
   }
   button {
-    font-size: 6px !important ;
-  }
-  #bacGrTab {
-    width: 192px;
-    height: 217px;
-  }
-  #bacGrTabBor {
-    width: 5.9px;
-    height: 8px;
+    font-size: 10px !important ;
   }
 }
+
 @media screen and (max-height: 370px) {
   body {
     height: 350px;
   }
   button {
-    font-size: 6px !important ;
+    font-size: 10px !important ;
   }
 }
 @media screen and (max-height: 350px) {
@@ -235,7 +152,6 @@
     height: 325px !important;
   }
   button {
-    font-size: 6px !important ;
+    font-size: 10px !important ;
   }
-
 }
