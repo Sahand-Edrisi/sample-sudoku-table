@@ -37,17 +37,19 @@ function sudokuGenerate(difficulty) {
 function RowHoverActive(event) {
   let trAdd = event.currentTarget;
   let trRemove = document.getElementsByTagName("tr");
+  for(let i =0 ; i < 9 ;i++){
+    if (
+      trAdd.classList.value == "rowTr"+ [i] ||
+      trAdd.classList.value == "hoverTr"+ [i]
+    ){
+      activeTrHover();
+    } else {
+      InactiveTrHover();
+      activeTrHover();
+    }
 
-  if (
-    trAdd.classList.value == "rowTr0" ||
-    trAdd.classList.value == "hoverTr0"
-  ) {
-    activeTrHover();
-  } else {
-    InactiveTrHover();
-    activeTrHover();
   }
-  
+
   function activeTrHover() {
     let rowTr0 = document.querySelectorAll(".rowTr0");
     let rowTr1 = document.querySelectorAll(".rowTr1");
@@ -170,12 +172,13 @@ function RowHoverActive(event) {
 function ColumnHoverActive(event) {
   let thAdd = event.currentTarget;
   let thRemove = document.getElementsByTagName("th");
-
-  if (thAdd.id == "colTh0" || thAdd.id == "hoverTh0") {
-    activeThHover();
-  } else {
-    InactiveThHover();
-    activeThHover();
+  for(let i = 0 ; i < 9 ; i++){
+    if (thAdd.id == "colTh" +[i] || thAdd.id == "hoverTh"+ [i]) {
+      activeThHover();
+    } else {
+      InactiveThHover();
+      activeThHover();
+    }
   }
 
   function activeThHover() {
