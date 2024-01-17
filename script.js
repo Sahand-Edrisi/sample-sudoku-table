@@ -10,7 +10,7 @@ function createTable() {
     let numIndex = num[i];
     for (let j = 0; j < numIndex.length; j++) {
       if (numIndex[j] == ".") {
-        row.innerHTML += `<th onclick="ColumnHoverActive(event)"  id="colTh${j}"><input class="rowTr${i}" id="colTh${j}" type="text" maxlength="1" oninput="this.value = this.value.replace(/[^1-9]/g,'')" > ${(numIndex[
+        row.innerHTML += `<th onclick="ColumnHoverActive(event)"  id="colTh${j}"><input type="text" maxlength="1" oninput="this.value = this.value.replace(/[^1-9]/g,'')" > ${(numIndex[
           j
         ] = " ")}
         </input>

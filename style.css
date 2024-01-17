@@ -20,8 +20,7 @@ th {
   height: 55px;
   font-size: 30px;
   text-align: center !important;
-  font-weight: 1000;
-  z-index: 5;
+  font-weight: 900;
 }
 .buttons {
   display: flex;
@@ -45,7 +44,9 @@ input {
   text-align: center;
   font-weight: 1000;
   font-size: 30px;
+  background-color:initial;
 }
+
 #hoverTh0,
 #hoverTh1,
 #hoverTh2,
@@ -55,7 +56,8 @@ input {
 #hoverTh6,
 #hoverTh7,
 #hoverTh8{
-  background-color: rgba(0, 169, 255, 0.3);
+  background-color:  rgba(0, 169, 255, 0.3);
+  
 }
 
 .hoverTr0,
@@ -67,7 +69,7 @@ input {
 .hoverTr6,
 .hoverTr7,
 .hoverTr8 {
-  background-color: rgba(0, 169, 255, 0.3);
+  background-color:  rgba(0, 169, 255, 0.3);
 }
 
 #colTh2{
