@@ -10,11 +10,11 @@ body {
   align-items: center;
 }
 tr{
-  background-color: #ebe7e7;
+  background-color: #fff;
 }
 
 th {
-  border: 1px solid black;
+  border: 1px solid #6e7c8c;
   width: 55px;
   height: 55px;
   font-size: 30px;
@@ -28,7 +28,7 @@ th {
   margin: 20px 0;
 }
 button {
-  border: 2px solid black;
+  border: 2px solid #6e7c8c;
   border-radius: 15px !important;
   padding: 2px 5px;
   background-color: inherit;
@@ -44,7 +44,7 @@ input {
   text-align: center;
   font-weight: 1000;
   font-size: 30px;
-  background-color: #ebe7e7;
+  background-color: #fff;
 
 }
 #hoverTh0,
@@ -71,80 +71,80 @@ input {
 }
 
 #colTh2{
-  border-right: 3px solid black
+  border-right: 3px solid #6e7c8c
 }
 #colTh2 input{
-  border-right: 0px solid black;
+  border-right: 0px solid #6e7c8c;
 }
 #colTh3{
-  border-left: 3px solid black;
+  border-left: 3px solid #6e7c8c;
 }
 #colTh3 input{
-  border-left: 0px solid black;
+  border-left: 0px solid #6e7c8c;
 }
 #colTh5{
-  border-right: 3px solid black
+  border-right: 3px solid #6e7c8c
 }
 #colTh5 input{
-  border-right: 0px solid black;
+  border-right: 0px solid #6e7c8c;
 }
 #colTh6{
-  border-left: 3px solid black;
+  border-left: 3px solid #6e7c8c;
 }
 #colTh6 input{
-  border-left: 0px solid black;
+  border-left: 0px solid #6e7c8c;
 }
 
 
 #hoverTh2{
-  border-right: 3px solid black
+  border-right: 3px solid #6e7c8c
 }
 #hoverTh2 input{
-  border-right: 0px solid black;
+  border-right: 0px solid #6e7c8c;
 }
 #hoverTh3{
-  border-left: 3px solid black;
+  border-left: 3px solid #6e7c8c;
 }
 #hoverTh3 input{
-  border-left: 0px solid black;
+  border-left: 0px solid #6e7c8c;
 }
 #hoverTh5{
-  border-right: 3px solid black
+  border-right: 3px solid #6e7c8c
 }
 #hoverTh5 input{
-  border-right: 0px solid black;
+  border-right: 0px solid #6e7c8c;
 }
 #hoverTh6{
-  border-left: 3px solid black;
+  border-left: 3px solid #6e7c8c;
 }
 #hoverTh6 input{
-  border-left: 0px solid black;
+  border-left: 0px solid #6e7c8c;
 }
 
 
 .rowTr2 th{
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid #6e7c8c;
 }
 .rowTr3 th{
-  border-top: 3px solid black;
+  border-top: 3px solid #6e7c8c;
 }
 .rowTr5 th{
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid #6e7c8c;
 }
 .rowTr6 th{
-  border-top: 3px solid black;
+  border-top: 3px solid #6e7c8c;
 }
 
 
 .hoverTr2 th{
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid #6e7c8c;
 }
 .hoverTr3 th{
-  border-top: 3px solid black;
+  border-top: 3px solid #6e7c8c;
 }
 .hoverTr5 th{
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid #6e7c8c;
 }
 .hoverTr6 th{
-  border-top: 3px solid black;
+  border-top: 3px solid #6e7c8c;
 }
