@@ -71,6 +71,17 @@ input {
 .hoverTr8 {
   background-color:  rgba(0, 169, 255, 0.3);
 }
+.activeHoverWindow0,
+.activeHoverWindow1,
+.activeHoverWindow2,
+.activeHoverWindow3,
+.activeHoverWindow4,
+.activeHoverWindow5,
+.activeHoverWindow6,
+.activeHoverWindow7,
+.activeHoverWindow8 {
+  background-color:  rgba(0, 169, 255, 0.3);
+}
 
 #colTh2{
   border-right: 2px solid #6e7c8c;
