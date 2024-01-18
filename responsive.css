@@ -64,11 +64,21 @@
   }
 }
 @media screen and (max-width: 400px) {
+
+
+  body {
+    height: 350px;
+  }
+  button {
+    font-size: 6px !important ;
+  }
+}
+@media screen and (max-width: 300px) {
+  
   th {
     width: 20px !important;
     height: 20px !important;
     font-size: 15px !important;
-
   }
   input {
     width: 20px !important;
@@ -79,7 +89,7 @@
     height: 350px;
   }
   button {
-    font-size: 6px !important ;
+    font-size: 5px !important ;
   }
 }
 
@@ -116,26 +126,36 @@
     height: 350px !important;
   }
   button {
-    font-size: 10px !important ;
+    font-size: 8px !important ;
   }
 }
 @media screen and (max-height: 470px) {
-  
+
   body {
     height: 400px !important;
   }
   button {
-    font-size: 8px !important ;
+    font-size: 6px !important ;
   }
 }
 
 @media screen and (max-height: 420px) {
+  th {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 15px !important;
+  }
+  input {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 15px !important;
 
+  }
   body {
     height: 350px !important;
   }
   button {
-    font-size: 10px !important ;
+    font-size: 5px !important ;
   }
 }
 
@@ -144,7 +164,7 @@
     height: 350px;
   }
   button {
-    font-size: 10px !important ;
+    font-size: 5px !important ;
   }
 }
 @media screen and (max-height: 350px) {
@@ -152,6 +172,6 @@
     height: 325px !important;
   }
   button {
-    font-size: 10px !important ;
+    font-size: 5px !important ;
   }
 }

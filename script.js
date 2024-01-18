@@ -10,7 +10,7 @@ function createTable() {
     let numIndex = num[i];
     for (let j = 0; j < numIndex.length; j++) {
       if (numIndex[j] == ".") {
-        row.innerHTML += `<th onclick="ColumnHoverActive(event)"  id="colTh${j}"><input type="text" maxlength="1" oninput="this.value = this.value.replace(/[^1-9]/g,'')" > ${(numIndex[
+        row.innerHTML += `<th onclick="ColumnHoverActive(event)"  id="colTh${j}"><input type="text" maxLength="1" oninput="this.value = this.value.replace(/[^1-9]/g,'')" > ${(numIndex[
           j
         ] = " ")}
         </input>
@@ -37,143 +37,113 @@ function sudokuGenerate(difficulty) {
 function RowHoverActive(event) {
   let trAdd = event.currentTarget;
   let trRemove = document.getElementsByTagName("tr");
-  for(let i =0 ; i < 9 ;i++){
+  for (let i = 0; i < 9; i++) {
     if (
-      trAdd.classList.value == "rowTr"+ [i] ||
-      trAdd.classList.value == "hoverTr"+ [i]
-    ){
+      trAdd.classList.value == "rowTr" + [i] ||
+      trAdd.classList.value == "hoverTr" + [i]
+    ) {
       activeTrHover();
     } else {
       InactiveTrHover();
       activeTrHover();
     }
-
   }
 
   function activeTrHover() {
-    let rowTr0 = document.querySelectorAll(".rowTr0");
-    let rowTr1 = document.querySelectorAll(".rowTr1");
-    let rowTr2 = document.querySelectorAll(".rowTr2");
-    let rowTr3 = document.querySelectorAll(".rowTr3");
-    let rowTr4 = document.querySelectorAll(".rowTr4");
-    let rowTr5 = document.querySelectorAll(".rowTr5");
-    let rowTr6 = document.querySelectorAll(".rowTr6");
-    let rowTr7 = document.querySelectorAll(".rowTr7");
-    let rowTr8 = document.querySelectorAll(".rowTr8");
+    let rowTr0 = document.querySelector(".rowTr0");
+    let rowTr1 = document.querySelector(".rowTr1");
+    let rowTr2 = document.querySelector(".rowTr2");
+    let rowTr3 = document.querySelector(".rowTr3");
+    let rowTr4 = document.querySelector(".rowTr4");
+    let rowTr5 = document.querySelector(".rowTr5");
+    let rowTr6 = document.querySelector(".rowTr6");
+    let rowTr7 = document.querySelector(".rowTr7");
+    let rowTr8 = document.querySelector(".rowTr8");
     switch (trAdd.classList.value) {
       case "rowTr0":
-        for (let i = 0; i < rowTr0.length; i++) {
-          rowTr0[i].setAttribute("class", "hoverTr0");
-        }
+        rowTr0.setAttribute("class", "hoverTr0");
         break;
       case "rowTr1":
-        for (let i = 0; i < rowTr1.length; i++) {
-          rowTr1[i].setAttribute("class", "hoverTr1");
-        }
+        rowTr1.setAttribute("class", "hoverTr1");
         break;
       case "rowTr2":
-        for (let i = 0; i < rowTr2.length; i++) {
-          rowTr2[i].setAttribute("class", "hoverTr2");
-        }
+        rowTr2.setAttribute("class", "hoverTr2");
         break;
       case "rowTr3":
-        for (let i = 0; i < rowTr3.length; i++) {
-          rowTr3[i].setAttribute("class", "hoverTr3");
-        }
+        rowTr3.setAttribute("class", "hoverTr3");
         break;
       case "rowTr4":
-        for (let i = 0; i < rowTr4.length; i++) {
-          rowTr4[i].setAttribute("class", "hoverTr4");
-        }
+        rowTr4.setAttribute("class", "hoverTr4");
         break;
       case "rowTr5":
-        for (let i = 0; i < rowTr5.length; i++) {
-          rowTr5[i].setAttribute("class", "hoverTr5");
-        }
+        rowTr5.setAttribute("class", "hoverTr5");
         break;
       case "rowTr6":
-        for (let i = 0; i < rowTr6.length; i++) {
-          rowTr6[i].setAttribute("class", "hoverTr6");
-        }
+        rowTr6.setAttribute("class", "hoverTr6");
         break;
       case "rowTr7":
-        for (let i = 0; i < rowTr7.length; i++) {
-          rowTr7[i].setAttribute("class", "hoverTr7");
-        }
+        rowTr7.setAttribute("class", "hoverTr7");
         break;
       case "rowTr8":
-        for (let i = 0; i < rowTr8.length; i++) {
-          rowTr8[i].setAttribute("class", "hoverTr8");
-        }
+        rowTr8.setAttribute("class", "hoverTr8");
     }
   }
   function InactiveTrHover() {
-    let hoverTr0 = document.querySelectorAll(".hoverTr0");
-    let hoverTr1 = document.querySelectorAll(".hoverTr1");
-    let hoverTr2 = document.querySelectorAll(".hoverTr2");
-    let hoverTr3 = document.querySelectorAll(".hoverTr3");
-    let hoverTr4 = document.querySelectorAll(".hoverTr4");
-    let hoverTr5 = document.querySelectorAll(".hoverTr5");
-    let hoverTr6 = document.querySelectorAll(".hoverTr6");
-    let hoverTr7 = document.querySelectorAll(".hoverTr7");
-    let hoverTr8 = document.querySelectorAll(".hoverTr8");
+    let hoverTr0 = document.querySelector(".hoverTr0");
+    let hoverTr1 = document.querySelector(".hoverTr1");
+    let hoverTr2 = document.querySelector(".hoverTr2");
+    let hoverTr3 = document.querySelector(".hoverTr3");
+    let hoverTr4 = document.querySelector(".hoverTr4");
+    let hoverTr5 = document.querySelector(".hoverTr5");
+    let hoverTr6 = document.querySelector(".hoverTr6");
+    let hoverTr7 = document.querySelector(".hoverTr7");
+    let hoverTr8 = document.querySelector(".hoverTr8");
     for (let j = 0; j < 9; j++) {
       switch (trRemove[j].className) {
         case "hoverTr0":
-          for (let i = 0; i < hoverTr0.length; i++) {
-            hoverTr0[i].setAttribute("class", "rowTr0");
-          }
+          hoverTr0.setAttribute("class", "rowTr0");
+
           break;
         case "hoverTr1":
-          for (let i = 0; i < hoverTr1.length; i++) {
-            hoverTr1[i].setAttribute("class", "rowTr1");
-          }
+          hoverTr1.setAttribute("class", "rowTr1");
+
           break;
         case "hoverTr2":
-          for (let i = 0; i < hoverTr2.length; i++) {
-            hoverTr2[i].setAttribute("class", "rowTr2");
-          }
+          hoverTr2.setAttribute("class", "rowTr2");
+
           break;
         case "hoverTr3":
-          for (let i = 0; i < hoverTr3.length; i++) {
-            hoverTr3[i].setAttribute("class", "rowTr3");
-          }
+          hoverTr3.setAttribute("class", "rowTr3");
+
           break;
         case "hoverTr4":
-          for (let i = 0; i < hoverTr4.length; i++) {
-            hoverTr4[i].setAttribute("class", "rowTr4");
-          }
+          hoverTr4.setAttribute("class", "rowTr4");
+
           break;
         case "hoverTr5":
-          for (let i = 0; i < hoverTr5.length; i++) {
-            hoverTr5[i].setAttribute("class", "rowTr5");
-          }
+          hoverTr5.setAttribute("class", "rowTr5");
+
           break;
         case "hoverTr6":
-          for (let i = 0; i < hoverTr6.length; i++) {
-            hoverTr6[i].setAttribute("class", "rowTr6");
-          }
+          hoverTr6.setAttribute("class", "rowTr6");
+
           break;
         case "hoverTr7":
-          for (let i = 0; i < hoverTr7.length; i++) {
-            hoverTr7[i].setAttribute("class", "rowTr7");
-          }
+          hoverTr7.setAttribute("class", "rowTr7");
+
           break;
         case "hoverTr8":
-          for (let i = 0; i < hoverTr8.length; i++) {
-            hoverTr8[i].setAttribute("class", "rowTr8");
-          }
+          hoverTr8.setAttribute("class", "rowTr8");
       }
     }
   }
-
 }
 
 function ColumnHoverActive(event) {
   let thAdd = event.currentTarget;
   let thRemove = document.getElementsByTagName("th");
-  for(let i = 0 ; i < 9 ; i++){
-    if (thAdd.id == "colTh" +[i] || thAdd.id == "hoverTh"+ [i]) {
+  for (let i = 0; i < 9; i++) {
+    if (thAdd.id == "colTh" + [i] || thAdd.id == "hoverTh" + [i]) {
       activeThHover();
     } else {
       InactiveThHover();
@@ -238,6 +208,7 @@ function ColumnHoverActive(event) {
         }
     }
   }
+
   function InactiveThHover() {
     let hoverTh0 = document.querySelectorAll("#hoverTh0");
     let hoverTh1 = document.querySelectorAll("#hoverTh1");
@@ -300,3 +271,20 @@ function ColumnHoverActive(event) {
 }
 
 createTable();
+
+let borderLeftNone = document.querySelectorAll("#colTh0");
+let borderRightNone = document.querySelectorAll("#colTh8");
+let borderTop0None = document.querySelector(".rowTr0").children;
+let borderBottom8None = document.querySelector(".rowTr8").children;
+
+borderTop0None[0].style = "border-top : 0px ;border-left : 0px ";
+borderTop0None[8].style = "border-top : 0px ;border-right : 0px ";
+borderBottom8None[0].style = "border-bottom : 0px ;border-left : 0px ";
+borderBottom8None[8].style = "border-bottom : 0px ;border-right : 0px ";
+
+for (let i = 1; i < 8; i++) {
+  borderTop0None[i].style = "border-top : 0px";
+  borderBottom8None[i].style = "border-bottom : 0px";
+  borderLeftNone[i].style = "border-left : 0px";
+  borderRightNone[i].style = "border-right : 0px";
+}
