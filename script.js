@@ -22,17 +22,17 @@ function createTable() {
     }
   }
 }
-function InactiveThBorder(){
+function InactiveThBorder() {
   let borderLeftNone = document.querySelectorAll("#colTh0");
   let borderRightNone = document.querySelectorAll("#colTh8");
   let borderTop0None = document.querySelector(".rowTr0").children;
   let borderBottom8None = document.querySelector(".rowTr8").children;
-  
+
   borderTop0None[0].style = "border-top : 0px ;border-left : 0px ";
   borderTop0None[8].style = "border-top : 0px ;border-right : 0px ";
   borderBottom8None[0].style = "border-bottom : 0px ;border-left : 0px ";
   borderBottom8None[8].style = "border-bottom : 0px ;border-right : 0px ";
-  
+
   for (let i = 1; i < 8; i++) {
     borderTop0None[i].style = "border-top : 0px";
     borderBottom8None[i].style = "border-bottom : 0px";
@@ -47,7 +47,7 @@ function sudokuGenerate(difficulty) {
   clearTable();
   num = sudoku.board_string_to_grid(sudoku.generate(difficulty));
   createTable();
-  InactiveThBorder()
+  InactiveThBorder();
 }
 function BGColorInput(event) {
   let input = event.currentTarget;
@@ -830,6 +830,4 @@ function ColumnHoverActive(event) {
 }
 
 createTable();
-InactiveThBorder()
-
-
+InactiveThBorder();

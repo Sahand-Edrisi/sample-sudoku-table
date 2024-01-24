@@ -14,7 +14,7 @@ body {
 }
 
 th {
-  border: 1px solid rgba(110, 124, 140, 0.3);
+  border: .5px solid rgba(110, 124, 140, 0.3);
   width: 55px;
   height: 55px;
   font-size: 30px;
@@ -73,77 +73,77 @@ input {
 }
 
 #colTh2 {
-  border-right: 2px solid #6e7c8c;
+  border-right: 1px solid #6e7c8c;
 }
 #colTh2 input {
   border-right: 0px solid #6e7c8c;
 }
 #colTh3 {
-  border-left: 2px solid #6e7c8c;
+  border-left: 1px solid #6e7c8c;
 }
 #colTh3 input {
   border-left: 0px solid #6e7c8c;
 }
 #colTh5 {
-  border-right: 2px solid #6e7c8c;
+  border-right: 1px solid #6e7c8c;
 }
 #colTh5 input {
   border-right: 0px solid #6e7c8c;
 }
 #colTh6 {
-  border-left: 2px solid #6e7c8c;
+  border-left: 1px solid #6e7c8c;
 }
 #colTh6 input {
   border-left: 0px solid #6e7c8c;
 }
 
 #hoverTh2 {
-  border-right: 2px solid #6e7c8c;
+  border-right: 1px solid #6e7c8c;
 }
 #hoverTh2 input {
   border-right: 0px solid #6e7c8c;
 }
 #hoverTh3 {
-  border-left: 2px solid #6e7c8c;
+  border-left: 1px solid #6e7c8c;
 }
 #hoverTh3 input {
   border-left: 0px solid #6e7c8c;
 }
 #hoverTh5 {
-  border-right: 2px solid #6e7c8c;
+  border-right: 1px solid #6e7c8c;
 }
 #hoverTh5 input {
   border-right: 0px solid #6e7c8c;
 }
 #hoverTh6 {
-  border-left: 2px solid #6e7c8c;
+  border-left: 1px solid #6e7c8c;
 }
 #hoverTh6 input {
   border-left: 0px solid #6e7c8c;
 }
 
 .rowTr2 th {
-  border-bottom: 2px solid #6e7c8c;
+  border-bottom: 1px solid #6e7c8c;
 }
 .rowTr3 th {
-  border-top: 2px solid #6e7c8c;
+  border-top: 1px solid #6e7c8c;
 }
 .rowTr5 th {
-  border-bottom: 2px solid #6e7c8c;
+  border-bottom: 1px solid #6e7c8c;
 }
 .rowTr6 th {
-  border-top: 2px solid #6e7c8c;
+  border-top: 1px solid #6e7c8c;
 }
 
 .hoverTr2 th {
-  border-bottom: 2px solid #6e7c8c;
+  border-bottom: 1px solid #6e7c8c;
 }
 .hoverTr3 th {
-  border-top: 2px solid #6e7c8c;
+  border-top: 1px solid #6e7c8c;
 }
 .hoverTr5 th {
-  border-bottom: 2px solid #6e7c8c;
+  border-bottom: 1px solid #6e7c8c;
 }
 .hoverTr6 th {
-  border-top: 2px solid #6e7c8c;
+  border-top: 1px solid #6e7c8c;
 }
