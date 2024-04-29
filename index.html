@@ -16,12 +16,16 @@
   <body>
     <div id="sudoko">
       <div class="buttons">
-        <button onclick="sudokuGenerate('easy')">easy</button>
-        <button onclick="sudokuGenerate('medium')">medium</button>
-        <button onclick="sudokuGenerate('hard')">hard</button>
-        <button onclick="sudokuGenerate('very-hard')">Very-hard</button>
-        <button onclick="sudokuGenerate('insane')">insane</button>
-        <button onclick="sudokuGenerate('inhuman')">inhuman</button>
+        <button onclick="sudokuGenerate('easy')"><span>easy</span></button>
+        <button onclick="sudokuGenerate('medium')"><span>medium</span></button>
+        <button onclick="sudokuGenerate('hard')"><span>hard</span></button>
+        <button onclick="sudokuGenerate('very-hard')">
+          <span>Very-hard</span>
+        </button>
+        <button onclick="sudokuGenerate('insane')"><span>insane</span></button>
+        <button onclick="sudokuGenerate('inhuman')">
+          <span>inhuman</span>
+        </button>
       </div>
       <div id="table"></div>
     </div>

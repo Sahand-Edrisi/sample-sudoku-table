@@ -1,177 +1,120 @@
-@media screen and (max-width: 1000px) {
-  th {
-    width: 50px !important;
-    height: 50px !important;
+@media screen and (max-width: 480px) {
+  #sudoko {
+    height: 540px;
   }
-  input {
-    width: 50px !important;
-    height: 50px !important;
+  .buttons {
+    width: 400px;
+    max-width: 400px;
   }
-  body {
-    height: 550px;
-  }
-  button {
-    font-size: 15px !important;
-  }
-}
-
-@media screen and (max-width: 950px) {
-  th {
-    width: 40px !important;
-    height: 40px !important;
-    font-size: 20px !important;
-  }
-  input {
-    width: 40px !important;
-    height: 40px !important;
-    font-size: 20px !important;
-  }
-  body {
-    height: 500px;
-  }
-  button {
-    font-size: 12px !important ;
-  }
-}
-@media screen and (max-width: 850px) {
-  th {
-    width: 35px !important;
-    height: 35px !important;
-  }
-  input {
-    width: 35px !important;
-    height: 35px !important;
-  }
-  body {
-    height: 450px;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  th {
-    width: 30px !important;
-    height: 30px !important;
-  }
-  input {
-    width: 30px !important;
-    height: 30px !important;
-  }
-  body {
-    height: 400px;
-  }
-  button {
-    font-size: 8px !important ;
-  }
-}
-@media screen and (max-width: 400px) {
-
-
-  body {
-    height: 350px;
-  }
-  button {
-    font-size: 6px !important ;
-  }
-}
-@media screen and (max-width: 300px) {
-  
-  th {
-    width: 20px !important;
-    height: 20px !important;
-    font-size: 15px !important;
-  }
-  input {
-    width: 20px !important;
-    height: 20px !important;
-    font-size: 15px !important;
-  }
-  body {
-    height: 350px;
-  }
-  button {
-    font-size: 5px !important ;
-  }
-}
-
-/* height */
-@media screen and (max-height: 600px) {
-  th {
-    width: 40px !important;
-    height: 40px !important;
-  }
-  input {
-    width: 40px !important;
-    height: 40px !important;
-  }
-  body {
-    height: 450px;
-  }
-  button {
+  button span {
     font-size: 12px !important;
   }
-}
-
-@media screen and (max-height: 550px) {
+  #table {
+    width: 400px;
+    height: 400px;
+  }
   th {
-    width: 30px !important;
-    height: 30px !important;
-    font-size: 20px !important;
+    width: 43.8px;
+    height: 43.8px;
   }
   input {
-    width: 30px !important;
-    height: 30px !important;
-    font-size: 20px !important;
+    width: 43.8px;
+    height: 43.8px;
+    max-width: 43.8px !important;
+    max-height: 43.8px !important;
   }
-  body {
-    height: 350px !important;
+
+  .rowTr3::before,
+  .rowTr6::before,
+  .hoverTr3::before,
+  .hoverTr6::before {
+    width: 399px;
+    top: -2px;
   }
-  button {
-    font-size: 8px !important ;
+  #colTh2:nth-last-child(7)::before,
+  #colTh5:nth-last-child(4)::before,
+  #hoverTh2::before,
+  #hoverTh5::before {
+    height: 47px;
   }
 }
-@media screen and (max-height: 470px) {
-
-  body {
-    height: 400px !important;
+@media screen and (max-width: 440px) {
+  #sudoko {
+    height: 530px;
   }
-  button {
-    font-size: 6px !important ;
+  .buttons {
+    width: 350px;
+    max-width: 350px;
   }
-}
-
-@media screen and (max-height: 420px) {
-  th {
-    width: 20px !important;
-    height: 20px !important;
-    font-size: 15px !important;
+  button span {
+    font-size: 9px !important;
   }
-  input {
-    width: 20px !important;
-    height: 20px !important;
-    font-size: 15px !important;
-
-  }
-  body {
-    height: 350px !important;
-  }
-  button {
-    font-size: 5px !important ;
-  }
-}
-
-@media screen and (max-height: 370px) {
-  body {
+  #table {
+    width: 350px;
     height: 350px;
   }
-  button {
-    font-size: 5px !important ;
+  th {
+    width: 38.2px;
+    height: 38.2px;
+  }
+  input {
+    width: 38.2px;
+    height: 38.2px;
+    max-width: 38.2px !important;
+    max-height: 38.2px !important;
+  }
+
+  .rowTr3::before,
+  .rowTr6::before,
+  .hoverTr3::before,
+  .hoverTr6::before {
+    width: 349px;
+    top: -2px;
+  }
+  #colTh2:nth-last-child(7)::before,
+  #colTh5:nth-last-child(4)::before,
+  #hoverTh2::before,
+  #hoverTh5::before {
+    height: 40px;
   }
 }
-@media screen and (max-height: 350px) {
-  body {
-    height: 325px !important;
+@media screen and (max-width: 410px) {
+  #sudoko {
+    height: 460px;
   }
-  button {
-    font-size: 5px !important ;
+  .buttons {
+    width: 300px;
+    max-width: 300px;
+  }
+  button span {
+    font-size: 7px !important;
+  }
+  #table {
+    width: 300px;
+    height: 300px;
+  }
+  th {
+    width: 32.6px;
+    height: 32.6px;
+  }
+  input {
+    width: 32.6px;
+    height: 32.6px;
+    max-width: 32.6px !important;
+    max-height: 32.6px !important;
+  }
+
+  .rowTr3::before,
+  .rowTr6::before,
+  .hoverTr3::before,
+  .hoverTr6::before {
+    width: 297px;
+    top: -2px;
+  }
+  #colTh2:nth-last-child(7)::before,
+  #colTh5:nth-last-child(4)::before,
+  #hoverTh2::before,
+  #hoverTh5::before {
+    height: 35px;
   }
 }

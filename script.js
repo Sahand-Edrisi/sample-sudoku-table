@@ -2,7 +2,6 @@ let num = sudoku.board_string_to_grid(sudoku.generate("easy"));
 
 function createTable() {
   for (i = 0; i < num.length; i++) {
-    let table = document.getElementById("table");
     let tr = document.createElement("tr");
     tr.setAttribute("onclick", "RowHoverActive(event)");
     tr.setAttribute("class", "rowTr" + [i]);
@@ -10,48 +9,79 @@ function createTable() {
     let numIndex = num[i];
     for (let j = 0; j < numIndex.length; j++) {
       if (numIndex[j] == ".") {
-        row.innerHTML += `<th onclick="ColumnHoverActive(event)"  id="colTh${j}"><input type="text" maxLength="1" oninput="this.value = this.value.replace(/[^1-9]/g,'')" onkeydown="BGColorInput(event)" > ${(numIndex[
+        row.innerHTML += `<th onclick="ColumnHoverActive(event)"><input type="text" maxLength="1" oninput="this.value = this.value.replace(/[^1-9]/g,'')" onkeydown="BGColorInput(event)" > ${(numIndex[
           j
         ] = " ")}
-          </input>
-          </th>
-        `;
+            </input>
+            </th>
+            `;
       } else {
-        row.innerHTML += `<th onclick="ColumnHoverActive(event)" id="colTh${j}">${numIndex[j]}</th>`;
+        row.innerHTML += `<th onclick="ColumnHoverActive(event)">${numIndex[j]}</th>`;
       }
     }
   }
 }
-function InactiveThBorder() {
-  let borderLeftNone = document.querySelectorAll("#colTh0");
-  let borderRightNone = document.querySelectorAll("#colTh8");
-  let borderTop0None = document.querySelector(".rowTr0").children;
-  let borderBottom8None = document.querySelector(".rowTr8").children;
 
-  borderTop0None[0].style = "border-top : 0px ;border-left : 0px ";
-  borderTop0None[8].style = "border-top : 0px ;border-right : 0px ";
-  borderBottom8None[0].style = "border-bottom : 0px ;border-left : 0px ";
-  borderBottom8None[8].style = "border-bottom : 0px ;border-right : 0px ";
-
-  for (let i = 1; i < 8; i++) {
-    borderTop0None[i].style = "border-top : 0px";
-    borderBottom8None[i].style = "border-bottom : 0px";
-    borderLeftNone[i].style = "border-left : 0px";
-    borderRightNone[i].style = "border-right : 0px";
-  }
-}
-function clearTable() {
-  document.getElementById("table").innerHTML = "";
-}
 function sudokuGenerate(difficulty) {
   clearTable();
   num = sudoku.board_string_to_grid(sudoku.generate(difficulty));
   createTable();
-  InactiveThBorder();
+  addClAnIdToTh();
+  ThBorderInsideTable();
 }
+function clearTable() {
+  document.getElementById("table").innerHTML = "";
+}
+
+function addClAnIdToTh() {
+  let rowTr0 = document.querySelector(".rowTr0").children;
+  let rowTr1 = document.querySelector(".rowTr1").children;
+  let rowTr2 = document.querySelector(".rowTr2").children;
+  let rowTr3 = document.querySelector(".rowTr3").children;
+  let rowTr4 = document.querySelector(".rowTr4").children;
+  let rowTr5 = document.querySelector(".rowTr5").children;
+  let rowTr6 = document.querySelector(".rowTr6").children;
+  let rowTr7 = document.querySelector(".rowTr7").children;
+  let rowTr8 = document.querySelector(".rowTr8").children;
+  for (let i = 0; i < 9; i++) {
+    rowTr3[i].setAttribute("class", "colorBorderInside");
+    rowTr6[i].setAttribute("class", "colorBorderInside");
+  }
+  for (let i = 0; i < 9; i++) {
+    rowTr0[i].setAttribute("id", "colTh" + [i]);
+    rowTr1[i].setAttribute("id", "colTh" + [i]);
+    rowTr2[i].setAttribute("id", "colTh" + [i]);
+    rowTr3[i].setAttribute("id", "colTh" + [i]);
+    rowTr4[i].setAttribute("id", "colTh" + [i]);
+    rowTr5[i].setAttribute("id", "colTh" + [i]);
+    rowTr6[i].setAttribute("id", "colTh" + [i]);
+    rowTr7[i].setAttribute("id", "colTh" + [i]);
+    rowTr8[i].setAttribute("id", "colTh" + [i]);
+  }
+}
+function ThBorderInsideTable() {
+  let colTh0 = document.querySelectorAll("#colTh0");
+  let colTh8 = document.querySelectorAll("#colTh8");
+
+  let rowTr0 = document.querySelector(".rowTr0").children;
+  let rowTr8 = document.querySelector(".rowTr8").children;
+
+  for (let i = 1; i < 8; i++) {
+    rowTr0[i].style = "border-top:0px";
+    colTh0[i].style = "border-left:0px";
+    rowTr8[i].style = "border-bottom:0px";
+    colTh8[i].style = "border-right:0px";
+  }
+
+  colTh0[0].style = "border-top:0px ; border-left:0px";
+  colTh0[8].style = "border-bottom:0px ; border-left:0px";
+
+  colTh8[0].style = "border-top:0px ; border-right:0px";
+  colTh8[8].style = "border-bottom:0px ; border-right:0px";
+}
+
 function BGColorInput(event) {
   let input = event.currentTarget;
-
   input.setAttribute("class", "BGColorInput");
 }
 // Row Table Hover Active And Deactivate
@@ -110,6 +140,7 @@ function RowHoverActive(event) {
         rowTr8.setAttribute("class", "hoverTr8");
     }
   }
+
   function InactiveTrHover() {
     let hoverTr0 = document.querySelector(".hoverTr0");
     let hoverTr1 = document.querySelector(".hoverTr1");
@@ -174,8 +205,7 @@ function ColumnHoverActive(event) {
       activeHoverWindow();
     }
   }
-  let th = document.querySelectorAll("th");
-  console.log(th[18]);
+
   function activeHoverWindow() {
     let th = document.querySelectorAll("th");
     switch (thAdd) {
@@ -830,4 +860,5 @@ function ColumnHoverActive(event) {
 }
 
 createTable();
-InactiveThBorder();
+addClAnIdToTh();
+ThBorderInsideTable();

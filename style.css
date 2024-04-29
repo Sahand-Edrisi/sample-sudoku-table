@@ -3,51 +3,85 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --borderColor--: #6e7c8c;
+  --borderInsideColor--: #18010c;
+}
 body {
   display: flex;
   justify-content: center;
-  height: 600px;
   align-items: center;
-}
-#table {
-  border: 2px solid #6e7c8c;
-}
-
-th {
-  border: .5px solid rgba(110, 124, 140, 0.3);
-  width: 55px;
-  height: 55px;
-  font-size: 30px;
-  text-align: center !important;
-  font-weight: 900;
 }
 .buttons {
   display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
+  justify-content: space-around;
+  width: 457px;
+  max-width: 457px;
 }
 button {
-  border: 2px solid rgba(110, 124, 140, 0.3);
+  border: 2px solid var(--borderInsideColor--);
   border-radius: 15px !important;
-  padding: 2px 5px;
   background-color: inherit;
   color: #18010c;
-  font-size: 20px !important;
-  font-weight: 1000;
   cursor: pointer;
+  display: flex;
+}
+button span {
+  font-weight: 1000;
+  font-size: 13px;
+  padding: 5px 10px;
+}
+#sudoko {
+  width: 600px;
+  height: 550px;
+  display: grid;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+  justify-items: center;
+}
+#table {
+  border: 4px solid #18010c;
+  width: 457px;
+  height: 457px;
+}
+
+tr {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto;
+  justify-content: start;
+}
+th {
+  border: 0.5px solid var(--borderColor--);
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 input {
-  width: 55px !important;
-  height: 55px !important;
+  width: 50px;
+  height: 50px;
+  max-width: 50px !important;
+  max-height: 50px !important;
   border: 0;
   text-align: center;
-  font-weight: 1000;
-  font-size: 30px;
+  font-weight: 900;
   background-color: initial;
 }
-.BGColorInput {
-  background-color: #b6bdc6;
+input[type="text"]:focus {
+  outline: none;
 }
+.BGColorInput {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  background-color: #b6bdc6;
+  z-index: -1;
+}
+
 #hoverTh0,
 #hoverTh1,
 #hoverTh2,
@@ -72,78 +106,42 @@ input {
   background-color: rgba(0, 169, 255, 0.3);
 }
 
-#colTh2 {
-  border-right: 1px solid #6e7c8c;
+.rowTr3,
+.rowTr6,
+.hoverTr3,
+.hoverTr6 {
+  position: relative;
 }
-#colTh2 input {
-  border-right: 0px solid #6e7c8c;
-}
-#colTh3 {
-  border-left: 1px solid #6e7c8c;
-}
-#colTh3 input {
-  border-left: 0px solid #6e7c8c;
-}
-#colTh5 {
-  border-right: 1px solid #6e7c8c;
-}
-#colTh5 input {
-  border-right: 0px solid #6e7c8c;
-}
-#colTh6 {
-  border-left: 1px solid #6e7c8c;
-}
-#colTh6 input {
-  border-left: 0px solid #6e7c8c;
+.rowTr3::before,
+.rowTr6::before,
+.hoverTr3::before,
+.hoverTr6::before {
+  position: absolute;
+  content: "";
+  z-index: 1;
+  width: 456px;
+  height: 4px;
+  background-color: var(--borderInsideColor--);
+  bottom: 46.98px;
+  right: -3px;
 }
 
-#hoverTh2 {
-  border-right: 1px solid #6e7c8c;
-}
-#hoverTh2 input {
-  border-right: 0px solid #6e7c8c;
-}
-#hoverTh3 {
-  border-left: 1px solid #6e7c8c;
-}
-#hoverTh3 input {
-  border-left: 0px solid #6e7c8c;
-}
+#colTh2:nth-last-child(7),
+#colTh5:nth-last-child(4),
+#hoverTh2,
 #hoverTh5 {
-  border-right: 1px solid #6e7c8c;
+  position: relative;
 }
-#hoverTh5 input {
-  border-right: 0px solid #6e7c8c;
-}
-#hoverTh6 {
-  border-left: 1px solid #6e7c8c;
-}
-#hoverTh6 input {
-  border-left: 0px solid #6e7c8c;
-}
-
-.rowTr2 th {
-  border-bottom: 1px solid #6e7c8c;
-}
-.rowTr3 th {
-  border-top: 1px solid #6e7c8c;
-}
-.rowTr5 th {
-  border-bottom: 1px solid #6e7c8c;
-}
-.rowTr6 th {
-  border-top: 1px solid #6e7c8c;
-}
-
-.hoverTr2 th {
-  border-bottom: 1px solid #6e7c8c;
-}
-.hoverTr3 th {
-  border-top: 1px solid #6e7c8c;
-}
-.hoverTr5 th {
-  border-bottom: 1px solid #6e7c8c;
-}
-.hoverTr6 th {
-  border-top: 1px solid #6e7c8c;
+#colTh2:nth-last-child(7)::before,
+#colTh5:nth-last-child(4)::before,
+#hoverTh2::before,
+#hoverTh5::before {
+  position: absolute;
+  z-index: 1;
+  content: " ";
+  width: 4px;
+  height: 52px;
+  background-color: var(--borderInsideColor--);
+  right: -3px;
+  top: -2px;
 }
