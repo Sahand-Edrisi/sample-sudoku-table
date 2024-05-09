@@ -70,16 +70,10 @@ input {
   text-align: center;
   font-weight: 900;
   background-color: initial;
+  color: red;
 }
 input[type="text"]:focus {
   outline: none;
-}
-.BGColorInput {
-  width: 50px;
-  height: 50px;
-  overflow: hidden;
-  background-color: #b6bdc6;
-  z-index: -1;
 }
 
 #hoverTh0,

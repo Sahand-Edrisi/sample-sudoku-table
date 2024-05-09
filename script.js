@@ -9,10 +9,10 @@ function createTable() {
     let numIndex = num[i];
     for (let j = 0; j < numIndex.length; j++) {
       if (numIndex[j] == ".") {
-        row.innerHTML += `<th onclick="ColumnHoverActive(event)"><input type="text" maxLength="1" oninput="this.value = this.value.replace(/[^1-9]/g,'')" onkeydown="BGColorInput(event)" > ${(numIndex[
+        row.innerHTML += `<th onclick="ColumnHoverActive(event)"><input type="text" maxLength="1" onkeyup="solveInput(event)" > ${(numIndex[
           j
-        ] = " ")}
-            </input>
+        ] = "")}
+        </input>
             </th>
             `;
       } else {
@@ -25,10 +25,12 @@ function createTable() {
 function sudokuGenerate(difficulty) {
   clearTable();
   num = sudoku.board_string_to_grid(sudoku.generate(difficulty));
+  solve();
   createTable();
   addClAnIdToTh();
   ThBorderInsideTable();
 }
+
 function clearTable() {
   document.getElementById("table").innerHTML = "";
 }
@@ -59,6 +61,7 @@ function addClAnIdToTh() {
     rowTr8[i].setAttribute("id", "colTh" + [i]);
   }
 }
+
 function ThBorderInsideTable() {
   let colTh0 = document.querySelectorAll("#colTh0");
   let colTh8 = document.querySelectorAll("#colTh8");
@@ -80,10 +83,114 @@ function ThBorderInsideTable() {
   colTh8[8].style = "border-bottom:0px ; border-right:0px";
 }
 
-function BGColorInput(event) {
-  let input = event.currentTarget;
-  input.setAttribute("class", "BGColorInput");
+function solve() {
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      if (num[i][j] == "") {
+        num[i][j] += ".";
+      }
+    }
+  }
+  let solvers = sudoku.board_grid_to_string(num);
+  let answer = sudoku.solve(solvers);
+  return answer;
 }
+
+function solveInput(event) {
+  let ThNumbers = document.querySelectorAll("th");
+  let input = event.currentTarget;
+  let thValAdToAry = [];
+  let inputs = "";
+  let solAdToAry = [];
+
+  switch (event.keyCode) {
+    case 97:
+      input.value = "1";
+      break;
+    case 98:
+      input.value = "2";
+      break;
+    case 99:
+      input.value = "3";
+      break;
+    case 100:
+      input.value = "4";
+      break;
+    case 101:
+      input.value = "5";
+      break;
+    case 102:
+      input.value = "6";
+      break;
+    case 103:
+      input.value = "7";
+      break;
+    case 104:
+      input.value = "8";
+      break;
+    case 105:
+      input.value = "9";
+      break;
+    case 49:
+      input.value = "1";
+      break;
+    case 50:
+      input.value = "2";
+      break;
+    case 51:
+      input.value = "3";
+      break;
+    case 52:
+      input.value = "4";
+      break;
+    case 53:
+      input.value = "5";
+      break;
+    case 54:
+      input.value = "6";
+      break;
+    case 55:
+      input.value = "7";
+      break;
+    case 56:
+      input.value = "8";
+      break;
+    case 57:
+      input.value = "9";
+      break;
+    default:
+      input.value = "";
+  }
+
+  for (let i = 0; i < 81; i++) {
+    let inputElemVal = ThNumbers[i].firstChild.value;
+    if (ThNumbers[i].innerText == inputs) {
+      if (inputElemVal == "") {
+        thValAdToAry.push((inputElemVal += "."));
+      } else {
+        thValAdToAry.push(inputElemVal);
+      }
+    } else {
+      thValAdToAry.push(ThNumbers[i].innerText);
+    }
+  }
+
+  for (let i = 0; i < 81; i++) {
+    solAdToAry.push(solve()[i]);
+  }
+
+  for (let i = 0; i < 81; i++) {
+    if (ThNumbers[i].innerText == "") {
+      if (thValAdToAry[i] == solAdToAry[i]) {
+        ThNumbers[i].firstChild.style = "color : green ;";
+        ThNumbers[i].innerText == solAdToAry[i];
+      } else {
+        ThNumbers[i].firstChild.style = "color:red";
+      }
+    }
+  }
+}
+
 // Row Table Hover Active And Deactivate
 
 function RowHoverActive(event) {
@@ -100,7 +207,7 @@ function RowHoverActive(event) {
       activeTrHover();
     }
   }
-
+  console.log(solve());
   function activeTrHover() {
     let rowTr0 = document.querySelector(".rowTr0");
     let rowTr1 = document.querySelector(".rowTr1");
@@ -860,5 +967,6 @@ function ColumnHoverActive(event) {
 }
 
 createTable();
+solve();
 addClAnIdToTh();
 ThBorderInsideTable();
