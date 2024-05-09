@@ -207,7 +207,6 @@ function RowHoverActive(event) {
       activeTrHover();
     }
   }
-  console.log(solve());
   function activeTrHover() {
     let rowTr0 = document.querySelector(".rowTr0");
     let rowTr1 = document.querySelector(".rowTr1");

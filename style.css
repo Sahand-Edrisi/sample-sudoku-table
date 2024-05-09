@@ -70,7 +70,6 @@ input {
   text-align: center;
   font-weight: 900;
   background-color: initial;
-  color: red;
 }
 input[type="text"]:focus {
   outline: none;
