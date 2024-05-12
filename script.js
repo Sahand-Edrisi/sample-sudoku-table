@@ -9,7 +9,7 @@ function createTable() {
     let numIndex = num[i];
     for (let j = 0; j < numIndex.length; j++) {
       if (numIndex[j] == ".") {
-        row.innerHTML += `<th onclick="ColumnHoverActive(event)"><input type="text" maxLength="1" onkeyup="solveInput(event)" > ${(numIndex[
+        row.innerHTML += `<th onclick="ColumnHoverActive(event)"><input type="text" maxLength="1" onkeydown="solveInput(event)" onclick="addIdToButtonNumbers(event)"> ${(numIndex[
           j
         ] = "")}
         </input>
@@ -96,14 +96,47 @@ function solve() {
   return answer;
 }
 
-function solveInput(event) {
+function CorrectNumberDetection() {
   let ThNumbers = document.querySelectorAll("th");
-  let input = event.currentTarget;
   let thValAdToAry = [];
   let inputs = "";
   let solAdToAry = [];
 
+  for (let i = 0; i < 81; i++) {
+    let inputElemVal = ThNumbers[i].firstChild.value;
+    if (ThNumbers[i].innerText == inputs) {
+      if (inputElemVal == "") {
+        thValAdToAry.push((inputElemVal += "."));
+      } else {
+        thValAdToAry.push(inputElemVal);
+      }
+    } else {
+      thValAdToAry.push(ThNumbers[i].innerText);
+    }
+  }
+
+  for (let i = 0; i < 81; i++) {
+    solAdToAry.push(solve()[i]);
+  }
+
+  for (let i = 0; i < 81; i++) {
+    if (ThNumbers[i].innerText == "") {
+      if (thValAdToAry[i] == solAdToAry[i]) {
+        ThNumbers[i].firstChild.style = "color : green ;";
+        ThNumbers[i].innerText == solAdToAry[i];
+      } else {
+        ThNumbers[i].firstChild.style = "color:red";
+      }
+    }
+  }
+}
+
+function solveInput(event) {
+  let input = event.currentTarget;
   switch (event.keyCode) {
+    case 97:
+      input.value = "1";
+      break;
     case 97:
       input.value = "1";
       break;
@@ -161,34 +194,31 @@ function solveInput(event) {
     default:
       input.value = "";
   }
+  CorrectNumberDetection();
+}
 
-  for (let i = 0; i < 81; i++) {
-    let inputElemVal = ThNumbers[i].firstChild.value;
-    if (ThNumbers[i].innerText == inputs) {
-      if (inputElemVal == "") {
-        thValAdToAry.push((inputElemVal += "."));
-      } else {
-        thValAdToAry.push(inputElemVal);
-      }
-    } else {
-      thValAdToAry.push(ThNumbers[i].innerText);
-    }
+function addIdToButtonNumbers(event) {
+  let input = event.currentTarget;
+  let inputs = document.querySelectorAll("input");
+  for (let i = 0; i < inputs.length; i++) {
+    inputs[i].id = "";
   }
+  input.setAttribute("id", "focus");
+}
+function numberButtonOnclick() {
+  let numberButton = document.querySelectorAll("#number");
+  for (let i = 0; i < numberButton.length; i++) {
+    numberButton[i].addEventListener("click", () => buttonNumbers(event));
+  }
+}
 
-  for (let i = 0; i < 81; i++) {
-    solAdToAry.push(solve()[i]);
-  }
 
-  for (let i = 0; i < 81; i++) {
-    if (ThNumbers[i].innerText == "") {
-      if (thValAdToAry[i] == solAdToAry[i]) {
-        ThNumbers[i].firstChild.style = "color : green ;";
-        ThNumbers[i].innerText == solAdToAry[i];
-      } else {
-        ThNumbers[i].firstChild.style = "color:red";
-      }
-    }
-  }
+function buttonNumbers(event){
+  let buttonNumbers = event.currentTarget
+  let focusInput = document.getElementById("focus")
+  focusInput.value = ""
+  focusInput.value += buttonNumbers.innerHTML;
+  CorrectNumberDetection();
 }
 
 // Row Table Hover Active And Deactivate
@@ -967,5 +997,6 @@ function ColumnHoverActive(event) {
 
 createTable();
 solve();
+numberButtonOnclick()
 addClAnIdToTh();
 ThBorderInsideTable();
