@@ -9,7 +9,7 @@ function createTable() {
     let numIndex = num[i];
     for (let j = 0; j < numIndex.length; j++) {
       if (numIndex[j] == ".") {
-        row.innerHTML += `<th onclick="ColumnHoverActive(event)"><input type="text" maxLength="1" onkeydown="solveInput(event)" onclick="addIdToButtonNumbers(event)"> ${(numIndex[
+        row.innerHTML += `<th onclick="ColumnHoverActive(event)"><input inputMode='none' type="text" maxLength="1" onkeydown="solveInput(event)" onclick="addIdToButtonNumbers(event)"> ${(numIndex[
           j
         ] = "")}
         </input>
