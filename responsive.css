@@ -23,6 +23,14 @@
     max-width: 43.8px !important;
     max-height: 43.8px !important;
   }
+  #buttonNum {
+    width: 400px;
+  }
+  #buttonNum button {
+    padding: 5px 15px;
+    font-weight: 800;
+    font-size: 15px;
+  }
 
   .rowTr3::before,
   .rowTr6::before,
@@ -62,6 +70,14 @@
     height: 38.2px;
     max-width: 38.2px !important;
     max-height: 38.2px !important;
+  }
+  #buttonNum {
+    width: 350px;
+  }
+  #buttonNum button {
+    padding: 5px 10px;
+    font-weight: 800;
+    font-size: 12px;
   }
 
   .rowTr3::before,
@@ -103,7 +119,14 @@
     max-width: 32.6px !important;
     max-height: 32.6px !important;
   }
-
+  #buttonNum {
+    width: 300px;
+  }
+  #buttonNum button {
+    padding: 5px 10px;
+    font-weight: 800;
+    font-size: 12px;
+  }
   .rowTr3::before,
   .rowTr6::before,
   .hoverTr3::before,
