@@ -12,7 +12,8 @@ body {
   justify-content: center;
   align-items: center;
 }
-.buttons , #buttonNum{
+.buttons,
+#buttonNum {
   display: flex;
   justify-content: space-around;
   width: 457px;
@@ -26,7 +27,7 @@ button {
   cursor: pointer;
   display: flex;
 }
-#buttonNum button{
+#buttonNum button {
   padding: 5px 15px;
   font-weight: 800;
   font-size: 20px;
@@ -65,6 +66,7 @@ th {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 input {
   width: 50px;
@@ -75,9 +77,11 @@ input {
   text-align: center;
   font-weight: 900;
   background-color: initial;
+  cursor: pointer;
 }
 input[type="text"]:focus {
   outline: none;
+  caret-color: transparent;
 }
 
 #hoverTh0,

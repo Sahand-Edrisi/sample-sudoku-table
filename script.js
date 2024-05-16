@@ -48,8 +48,6 @@ function addClAnIdToTh() {
   for (let i = 0; i < 9; i++) {
     rowTr3[i].setAttribute("class", "colorBorderInside");
     rowTr6[i].setAttribute("class", "colorBorderInside");
-  }
-  for (let i = 0; i < 9; i++) {
     rowTr0[i].setAttribute("id", "colTh" + [i]);
     rowTr1[i].setAttribute("id", "colTh" + [i]);
     rowTr2[i].setAttribute("id", "colTh" + [i]);
@@ -101,11 +99,12 @@ function CorrectNumberDetection() {
   let thValAdToAry = [];
   let inputs = "";
   let solAdToAry = [];
+  let solveAndThVal = [thValAdToAry, solAdToAry];
 
   for (let i = 0; i < 81; i++) {
     let inputElemVal = ThNumbers[i].firstChild.value;
     if (ThNumbers[i].innerText == inputs) {
-      if (inputElemVal == "") {
+      if (inputElemVal == inputs) {
         thValAdToAry.push((inputElemVal += "."));
       } else {
         thValAdToAry.push(inputElemVal);
@@ -113,15 +112,11 @@ function CorrectNumberDetection() {
     } else {
       thValAdToAry.push(ThNumbers[i].innerText);
     }
-  }
 
-  for (let i = 0; i < 81; i++) {
     solAdToAry.push(solve()[i]);
-  }
 
-  for (let i = 0; i < 81; i++) {
-    if (ThNumbers[i].innerText == "") {
-      if (thValAdToAry[i] == solAdToAry[i]) {
+    if (ThNumbers[i].innerText == inputs) {
+      if (solveAndThVal[0][i] == solveAndThVal[1][i]) {
         ThNumbers[i].firstChild.style = "color : green ;";
         ThNumbers[i].innerText == solAdToAry[i];
       } else {
@@ -212,11 +207,10 @@ function numberButtonOnclick() {
   }
 }
 
-
-function buttonNumbers(event){
-  let buttonNumbers = event.currentTarget
-  let focusInput = document.getElementById("focus")
-  focusInput.value = ""
+function buttonNumbers(event) {
+  let buttonNumbers = event.currentTarget;
+  let focusInput = document.getElementById("focus");
+  focusInput.value = "";
   focusInput.value += buttonNumbers.innerHTML;
   CorrectNumberDetection();
 }
@@ -997,6 +991,6 @@ function ColumnHoverActive(event) {
 
 createTable();
 solve();
-numberButtonOnclick()
+numberButtonOnclick();
 addClAnIdToTh();
 ThBorderInsideTable();
