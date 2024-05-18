@@ -9,7 +9,7 @@ function createTable() {
     let numIndex = num[i];
     for (let j = 0; j < numIndex.length; j++) {
       if (numIndex[j] == ".") {
-        row.innerHTML += `<th onclick="ColumnHoverActive(event)"><input inputMode='none' type="text" maxLength="1" onkeydown="solveInput(event)" onclick="addIdToButtonNumbers(event)"> ${(numIndex[
+        row.innerHTML += `<th onclick="ColumnHoverActive(event)"><input  inputMode='none' type="text" maxLength="1" onkeydown="solveInput(event)" onclick="addIdToButtonNumbers(event)"> ${(numIndex[
           j
         ] = "")}
         </input>
@@ -91,43 +91,15 @@ function solve() {
   }
   let solvers = sudoku.board_grid_to_string(num);
   let answer = sudoku.solve(solvers);
-  return answer;
+  let ansToGrid = sudoku.board_string_to_grid(answer);
+  return ansToGrid;
 }
 
-function CorrectNumberDetection() {
-  let ThNumbers = document.querySelectorAll("th");
-  let thValAdToAry = [];
-  let inputs = "";
-  let solAdToAry = [];
-  let solveAndThVal = [thValAdToAry, solAdToAry];
-
-  for (let i = 0; i < 81; i++) {
-    let inputElemVal = ThNumbers[i].firstChild.value;
-    if (ThNumbers[i].innerText == inputs) {
-      if (inputElemVal == inputs) {
-        thValAdToAry.push((inputElemVal += "."));
-      } else {
-        thValAdToAry.push(inputElemVal);
-      }
-    } else {
-      thValAdToAry.push(ThNumbers[i].innerText);
-    }
-
-    solAdToAry.push(solve()[i]);
-
-    if (ThNumbers[i].innerText == inputs) {
-      if (solveAndThVal[0][i] == solveAndThVal[1][i]) {
-        ThNumbers[i].firstChild.style = "color : green ;";
-        ThNumbers[i].innerText == solAdToAry[i];
-      } else {
-        ThNumbers[i].firstChild.style = "color:red";
-      }
-    }
-  }
-}
+// console.log(CorrectNumberDetection());
 
 function solveInput(event) {
   let input = event.currentTarget;
+  input.setAttribute("id", "focus");
   switch (event.keyCode) {
     case 97:
       input.value = "1";
@@ -189,16 +161,29 @@ function solveInput(event) {
     default:
       input.value = "";
   }
-  CorrectNumberDetection();
+  let thNumbers = document.querySelectorAll("th");
+  let thNumToGrid = sudoku.board_string_to_grid(thNumbers);
+
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      if (thNumToGrid[i][j].firstChild.id == "focus") {
+        if (input.value == solve()[i][j]) {
+          input.style = "color:green";
+        } else {
+          input.style = "color:red";
+        }
+      }
+    }
+  }
 }
 
 function addIdToButtonNumbers(event) {
   let input = event.currentTarget;
   let inputs = document.querySelectorAll("input");
   for (let i = 0; i < inputs.length; i++) {
-    inputs[i].id = "";
+    inputs[i].classList = "";
   }
-  input.setAttribute("id", "focus");
+  input.setAttribute("class", "focus");
 }
 function numberButtonOnclick() {
   let numberButton = document.querySelectorAll("#number");
@@ -209,10 +194,23 @@ function numberButtonOnclick() {
 
 function buttonNumbers(event) {
   let buttonNumbers = event.currentTarget;
-  let focusInput = document.getElementById("focus");
+  let focusInput = document.getElementsByClassName("focus")[0];
+  let thNumbers = document.querySelectorAll("th");
+  let thNumToGrid = sudoku.board_string_to_grid(thNumbers);
   focusInput.value = "";
   focusInput.value += buttonNumbers.innerHTML;
-  CorrectNumberDetection();
+
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      if (thNumToGrid[i][j].firstChild.className == "focus") {
+        if (focusInput.value == solve()[i][j]) {
+          focusInput.style = "color :green";
+        } else {
+          focusInput.style = "color :red";
+        }
+      }
+    }
+  }
 }
 
 // Row Table Hover Active And Deactivate
