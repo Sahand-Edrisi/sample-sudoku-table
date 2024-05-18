@@ -99,6 +99,8 @@ function solve() {
 
 function solveInput(event) {
   let input = event.currentTarget;
+  let thNumbers = document.querySelectorAll("th");
+  let thNumToGrid = sudoku.board_string_to_grid(thNumbers);
   input.setAttribute("id", "focus");
   switch (event.keyCode) {
     case 97:
@@ -161,8 +163,6 @@ function solveInput(event) {
     default:
       input.value = "";
   }
-  let thNumbers = document.querySelectorAll("th");
-  let thNumToGrid = sudoku.board_string_to_grid(thNumbers);
 
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
