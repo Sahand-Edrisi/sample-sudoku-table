@@ -3,21 +3,29 @@ let _sudokuPuzzleGrid;
 let _sudokuPuzzleSolved;
 let _sudokuPuzzleSolvedGrid;
 
+let _classIndexOne;
+let _classIndexTwo;
+let _input;
+
 function generateSudoku(difficulty) {
   _sudokuPuzzle = sudoku.generate(difficulty);
   _sudokuPuzzleGrid = sudoku.board_string_to_grid(_sudokuPuzzle);
 }
 
-function solve() {
+function solves() {
   _sudokuPuzzleSolved = sudoku.solve(_sudokuPuzzle);
   _sudokuPuzzleSolvedGrid = sudoku.board_string_to_grid(_sudokuPuzzleSolved);
 }
 
+function input(event) {
+  let input = event.currentTarget;
+  _classIndexOne = input.parentElement.classList[0][0];
+  _classIndexTwo = input.parentElement.classList[0][1];
+  _input = input;
+}
+
 function solveInput(event) {
   let input = event.currentTarget;
-  let thNumbers = document.querySelectorAll("th");
-  let thNumToGrid = sudoku.board_string_to_grid(thNumbers);
-  input.setAttribute("id", "focus");
   switch (event.keyCode) {
     case 97:
       input.value = "1";
@@ -77,19 +85,13 @@ function solveInput(event) {
       input.value = "9";
       break;
     default:
-      input.value = "";
+      input.value = " ";
   }
 
-  for (let i = 0; i < 9; i++) {
-    for (let j = 0; j < 9; j++) {
-      if (thNumToGrid[i][j].firstChild.id == "focus") {
-        if (input.value == _sudokuPuzzleSolvedGrid[i][j]) {
-          input.style = "color:green";
-        } else {
-          input.style = "color:red";
-        }
-      }
-    }
+  if (input.value == _sudokuPuzzleSolvedGrid[_classIndexOne][_classIndexTwo]) {
+    input.style = "color:green";
+  } else {
+    input.style = "color:red";
   }
 }
 
@@ -97,42 +99,23 @@ function clearTable() {
   document.getElementById("table").innerHTML = "";
 }
 
-// add Id To Button Numbers
-
-function addIdToButtonNumbers(event) {
-  let input = event.currentTarget;
-  let inputs = document.querySelectorAll("input");
-  for (let i = 0; i < inputs.length; i++) {
-    inputs[i].classList = "";
-  }
-  input.setAttribute("class", "focus");
-}
-
-function numberButtonOnclick() {
+// addEventListener Button Numbers
+function addEventOnClickToButtons() {
   let numberButton = document.querySelectorAll("#number");
   for (let i = 0; i < numberButton.length; i++) {
-    numberButton[i].addEventListener("click", () => buttonNumbers(event));
+    numberButton[i].addEventListener("click", () =>
+      addButtonNumberInInputValue(event)
+    );
   }
 }
 
-function buttonNumbers(event) {
+function addButtonNumberInInputValue(event) {
   let buttonNumbers = event.currentTarget;
-  let focusInput = document.getElementsByClassName("focus")[0];
-  let thNumbers = document.querySelectorAll("th");
-  let thNumToGrid = sudoku.board_string_to_grid(thNumbers);
-  focusInput.value = "";
-  focusInput.value += buttonNumbers.innerHTML;
-
-  for (let i = 0; i < 9; i++) {
-    for (let j = 0; j < 9; j++) {
-      if (thNumToGrid[i][j].firstChild.className == "focus") {
-        if (focusInput.value == _sudokuPuzzleSolvedGrid[i][j]) {
-          focusInput.style = "color :green";
-        } else {
-          focusInput.style = "color :red";
-        }
-      }
-    }
+  _input.value = buttonNumbers.innerHTML;
+  if (_input.value == _sudokuPuzzleSolvedGrid[_classIndexOne][_classIndexTwo]) {
+    _input.style = "color:green";
+  } else {
+    _input.style = "color:red";
   }
 }
 
@@ -145,14 +128,18 @@ function createTable() {
     let numIndex = _sudokuPuzzleGrid[i];
     for (let j = 0; j < 9; j++) {
       if (numIndex[j] == ".") {
-        row.innerHTML += `<th onclick="ColumnHoverActive(event)"><input  inputMode='none' type="text" maxLength="1" onkeydown="solveInput(event)" onclick="addIdToButtonNumbers(event)"> ${(numIndex[
+        row.innerHTML += `<th onclick="ColumnHoverActive(event)" class="${
+          [i] + [j]
+        }"><input pattern="[0-9]" inputMode='none' type="text" maxLength="1" onkeydown="solveInput(event)" onclick="input(event)"> ${(numIndex[
           j
         ] = "")}
         </input>
             </th>
             `;
       } else {
-        row.innerHTML += `<th onclick="ColumnHoverActive(event)">${numIndex[j]}</th>`;
+        row.innerHTML += `<th onclick="ColumnHoverActive(event)" lass="${
+          [i] + [j]
+        }">${numIndex[j]}</th>`;
       }
     }
   }
@@ -160,7 +147,7 @@ function createTable() {
 
 // add Class And Id To Th
 
-function addClAnIdToTh() {
+function addClassAndIdToTh() {
   let rowTr0 = document.querySelector(".rowTr0").children;
   let rowTr1 = document.querySelector(".rowTr1").children;
   let rowTr2 = document.querySelector(".rowTr2").children;
@@ -171,8 +158,6 @@ function addClAnIdToTh() {
   let rowTr7 = document.querySelector(".rowTr7").children;
   let rowTr8 = document.querySelector(".rowTr8").children;
   for (let i = 0; i < 9; i++) {
-    rowTr3[i].setAttribute("class", "colorBorderInside");
-    rowTr6[i].setAttribute("class", "colorBorderInside");
     rowTr0[i].setAttribute("id", "colTh" + [i]);
     rowTr1[i].setAttribute("id", "colTh" + [i]);
     rowTr2[i].setAttribute("id", "colTh" + [i]);
@@ -206,7 +191,6 @@ function ThBorderInsideTable() {
   colTh8[8].style = "border-bottom:0px ; border-right:0px";
 }
 
-
 // Row Table Hover Active And Deactivate
 
 function RowHoverActive(event) {
@@ -223,6 +207,7 @@ function RowHoverActive(event) {
       activeTrHover();
     }
   }
+
   function activeTrHover() {
     let rowTr0 = document.querySelector(".rowTr0");
     let rowTr1 = document.querySelector(".rowTr1");
@@ -984,10 +969,10 @@ function ColumnHoverActive(event) {
 function init(difficulty) {
   clearTable();
   generateSudoku(difficulty);
-  solve();
-  numberButtonOnclick();
+  solves();
   createTable();
-  addClAnIdToTh();
+  addEventOnClickToButtons();
+  addClassAndIdToTh();
   ThBorderInsideTable();
 }
 
