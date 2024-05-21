@@ -1,101 +1,17 @@
-let num = sudoku.board_string_to_grid(sudoku.generate("easy"));
+let _sudokuPuzzle;
+let _sudokuPuzzleGrid;
+let _sudokuPuzzleSolved;
+let _sudokuPuzzleSolvedGrid;
 
-function createTable() {
-  for (i = 0; i < num.length; i++) {
-    let tr = document.createElement("tr");
-    tr.setAttribute("onclick", "RowHoverActive(event)");
-    tr.setAttribute("class", "rowTr" + [i]);
-    let row = table.appendChild(tr);
-    let numIndex = num[i];
-    for (let j = 0; j < numIndex.length; j++) {
-      if (numIndex[j] == ".") {
-        row.innerHTML += `<th onclick="ColumnHoverActive(event)"><input  inputMode='none' type="text" maxLength="1" onkeydown="solveInput(event)" onclick="addIdToButtonNumbers(event)"> ${(numIndex[
-          j
-        ] = "")}
-        </input>
-            </th>
-            `;
-      } else {
-        row.innerHTML += `<th onclick="ColumnHoverActive(event)">${numIndex[j]}</th>`;
-      }
-    }
-  }
-}
-
-function sudokuGenerate(difficulty) {
-  clearTable();
-  num = sudoku.board_string_to_grid(sudoku.generate(difficulty));
-  solve();
-  createTable();
-  addClAnIdToTh();
-  ThBorderInsideTable();
-}
-
-function clearTable() {
-  document.getElementById("table").innerHTML = "";
-}
-
-function addClAnIdToTh() {
-  let rowTr0 = document.querySelector(".rowTr0").children;
-  let rowTr1 = document.querySelector(".rowTr1").children;
-  let rowTr2 = document.querySelector(".rowTr2").children;
-  let rowTr3 = document.querySelector(".rowTr3").children;
-  let rowTr4 = document.querySelector(".rowTr4").children;
-  let rowTr5 = document.querySelector(".rowTr5").children;
-  let rowTr6 = document.querySelector(".rowTr6").children;
-  let rowTr7 = document.querySelector(".rowTr7").children;
-  let rowTr8 = document.querySelector(".rowTr8").children;
-  for (let i = 0; i < 9; i++) {
-    rowTr3[i].setAttribute("class", "colorBorderInside");
-    rowTr6[i].setAttribute("class", "colorBorderInside");
-    rowTr0[i].setAttribute("id", "colTh" + [i]);
-    rowTr1[i].setAttribute("id", "colTh" + [i]);
-    rowTr2[i].setAttribute("id", "colTh" + [i]);
-    rowTr3[i].setAttribute("id", "colTh" + [i]);
-    rowTr4[i].setAttribute("id", "colTh" + [i]);
-    rowTr5[i].setAttribute("id", "colTh" + [i]);
-    rowTr6[i].setAttribute("id", "colTh" + [i]);
-    rowTr7[i].setAttribute("id", "colTh" + [i]);
-    rowTr8[i].setAttribute("id", "colTh" + [i]);
-  }
-}
-
-function ThBorderInsideTable() {
-  let colTh0 = document.querySelectorAll("#colTh0");
-  let colTh8 = document.querySelectorAll("#colTh8");
-
-  let rowTr0 = document.querySelector(".rowTr0").children;
-  let rowTr8 = document.querySelector(".rowTr8").children;
-
-  for (let i = 1; i < 8; i++) {
-    rowTr0[i].style = "border-top:0px";
-    colTh0[i].style = "border-left:0px";
-    rowTr8[i].style = "border-bottom:0px";
-    colTh8[i].style = "border-right:0px";
-  }
-
-  colTh0[0].style = "border-top:0px ; border-left:0px";
-  colTh0[8].style = "border-bottom:0px ; border-left:0px";
-
-  colTh8[0].style = "border-top:0px ; border-right:0px";
-  colTh8[8].style = "border-bottom:0px ; border-right:0px";
+function generateSudoku(difficulty) {
+  _sudokuPuzzle = sudoku.generate(difficulty);
+  _sudokuPuzzleGrid = sudoku.board_string_to_grid(_sudokuPuzzle);
 }
 
 function solve() {
-  for (let i = 0; i < 9; i++) {
-    for (let j = 0; j < 9; j++) {
-      if (num[i][j] == "") {
-        num[i][j] += ".";
-      }
-    }
-  }
-  let solvers = sudoku.board_grid_to_string(num);
-  let answer = sudoku.solve(solvers);
-  let ansToGrid = sudoku.board_string_to_grid(answer);
-  return ansToGrid;
+  _sudokuPuzzleSolved = sudoku.solve(_sudokuPuzzle);
+  _sudokuPuzzleSolvedGrid = sudoku.board_string_to_grid(_sudokuPuzzleSolved);
 }
-
-// console.log(CorrectNumberDetection());
 
 function solveInput(event) {
   let input = event.currentTarget;
@@ -167,7 +83,7 @@ function solveInput(event) {
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
       if (thNumToGrid[i][j].firstChild.id == "focus") {
-        if (input.value == solve()[i][j]) {
+        if (input.value == _sudokuPuzzleSolvedGrid[i][j]) {
           input.style = "color:green";
         } else {
           input.style = "color:red";
@@ -177,6 +93,12 @@ function solveInput(event) {
   }
 }
 
+function clearTable() {
+  document.getElementById("table").innerHTML = "";
+}
+
+// add Id To Button Numbers
+
 function addIdToButtonNumbers(event) {
   let input = event.currentTarget;
   let inputs = document.querySelectorAll("input");
@@ -185,6 +107,7 @@ function addIdToButtonNumbers(event) {
   }
   input.setAttribute("class", "focus");
 }
+
 function numberButtonOnclick() {
   let numberButton = document.querySelectorAll("#number");
   for (let i = 0; i < numberButton.length; i++) {
@@ -203,7 +126,7 @@ function buttonNumbers(event) {
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
       if (thNumToGrid[i][j].firstChild.className == "focus") {
-        if (focusInput.value == solve()[i][j]) {
+        if (focusInput.value == _sudokuPuzzleSolvedGrid[i][j]) {
           focusInput.style = "color :green";
         } else {
           focusInput.style = "color :red";
@@ -212,6 +135,77 @@ function buttonNumbers(event) {
     }
   }
 }
+
+function createTable() {
+  for (i = 0; i < 9; i++) {
+    let tr = document.createElement("tr");
+    tr.setAttribute("onclick", "RowHoverActive(event)");
+    tr.setAttribute("class", "rowTr" + [i]);
+    let row = table.appendChild(tr);
+    let numIndex = _sudokuPuzzleGrid[i];
+    for (let j = 0; j < 9; j++) {
+      if (numIndex[j] == ".") {
+        row.innerHTML += `<th onclick="ColumnHoverActive(event)"><input  inputMode='none' type="text" maxLength="1" onkeydown="solveInput(event)" onclick="addIdToButtonNumbers(event)"> ${(numIndex[
+          j
+        ] = "")}
+        </input>
+            </th>
+            `;
+      } else {
+        row.innerHTML += `<th onclick="ColumnHoverActive(event)">${numIndex[j]}</th>`;
+      }
+    }
+  }
+}
+
+// add Class And Id To Th
+
+function addClAnIdToTh() {
+  let rowTr0 = document.querySelector(".rowTr0").children;
+  let rowTr1 = document.querySelector(".rowTr1").children;
+  let rowTr2 = document.querySelector(".rowTr2").children;
+  let rowTr3 = document.querySelector(".rowTr3").children;
+  let rowTr4 = document.querySelector(".rowTr4").children;
+  let rowTr5 = document.querySelector(".rowTr5").children;
+  let rowTr6 = document.querySelector(".rowTr6").children;
+  let rowTr7 = document.querySelector(".rowTr7").children;
+  let rowTr8 = document.querySelector(".rowTr8").children;
+  for (let i = 0; i < 9; i++) {
+    rowTr3[i].setAttribute("class", "colorBorderInside");
+    rowTr6[i].setAttribute("class", "colorBorderInside");
+    rowTr0[i].setAttribute("id", "colTh" + [i]);
+    rowTr1[i].setAttribute("id", "colTh" + [i]);
+    rowTr2[i].setAttribute("id", "colTh" + [i]);
+    rowTr3[i].setAttribute("id", "colTh" + [i]);
+    rowTr4[i].setAttribute("id", "colTh" + [i]);
+    rowTr5[i].setAttribute("id", "colTh" + [i]);
+    rowTr6[i].setAttribute("id", "colTh" + [i]);
+    rowTr7[i].setAttribute("id", "colTh" + [i]);
+    rowTr8[i].setAttribute("id", "colTh" + [i]);
+  }
+}
+
+function ThBorderInsideTable() {
+  let colTh0 = document.querySelectorAll("#colTh0");
+  let colTh8 = document.querySelectorAll("#colTh8");
+
+  let rowTr0 = document.querySelector(".rowTr0").children;
+  let rowTr8 = document.querySelector(".rowTr8").children;
+
+  for (let i = 1; i < 8; i++) {
+    rowTr0[i].style = "border-top:0px";
+    colTh0[i].style = "border-left:0px";
+    rowTr8[i].style = "border-bottom:0px";
+    colTh8[i].style = "border-right:0px";
+  }
+
+  colTh0[0].style = "border-top:0px ; border-left:0px";
+  colTh0[8].style = "border-bottom:0px ; border-left:0px";
+
+  colTh8[0].style = "border-top:0px ; border-right:0px";
+  colTh8[8].style = "border-bottom:0px ; border-right:0px";
+}
+
 
 // Row Table Hover Active And Deactivate
 
@@ -987,8 +981,14 @@ function ColumnHoverActive(event) {
   }
 }
 
-createTable();
-solve();
-numberButtonOnclick();
-addClAnIdToTh();
-ThBorderInsideTable();
+function init(difficulty) {
+  clearTable();
+  generateSudoku(difficulty);
+  solve();
+  numberButtonOnclick();
+  createTable();
+  addClAnIdToTh();
+  ThBorderInsideTable();
+}
+
+init("easy");
