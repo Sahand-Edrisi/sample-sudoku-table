@@ -30,9 +30,6 @@ function solveInput(event) {
     case 97:
       input.value = "1";
       break;
-    case 97:
-      input.value = "1";
-      break;
     case 98:
       input.value = "2";
       break;
