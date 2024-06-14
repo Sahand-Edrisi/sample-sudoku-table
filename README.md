@@ -1,4 +1,4 @@
-# personal-website
+# sudoku-table
 
 To view the demo click on the link : https://sahand-edrisi.github.io/sample-sudoku-table/
 
